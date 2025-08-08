@@ -2,11 +2,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-import React from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import { FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
 
+
+import image1 from "../assets/photos/beach1.jpg";
+import image2 from "../assets/photos/heritage.jpg";
+import image3 from "../assets/photos/resort.jpg";
 // ---------- Styled Components ----------
 const Wrapper = styled.div`
   background: #fdfdfd;
@@ -98,21 +101,21 @@ const destinations = [
     name: 'The Beach Wedddings',
     capacity: '1000',
     location: 'Kovalam, Thiruvananthapuram',
-    image: 'https://i.ibb.co/P56H1kG/beach.jpg',
+    image: image1,
   },
   {
     tag: 'Budget friendly',
     name: 'Munnar Hills Resorts',
     capacity: '1500',
     location: 'Munnar Hills, Munnar',
-    image: 'https://i.ibb.co/fYhkQXR/munnar.jpg',
+    image: image2,
   },
   {
     tag: 'Popular',
     name: 'Heritage Moments',
     capacity: '1000',
     location: 'Fort Kochi, Kochi',
-    image: 'https://i.ibb.co/w46Zyfj/heritage.jpg',
+    image: image3,
   },
 ];
 

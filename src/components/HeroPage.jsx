@@ -66,7 +66,7 @@ const HeroPage = () => {
           </div>
 
           {/* Text Content */}
-          <div className="mt-4 md:mt-0  ">
+          <div className="mt-4 md:mt-0">
             <h2 className="text-[28px] sm:text-[35px] md:text-[42px] font-bold text-[#211f54]">
               Crafting Unforgettable wedding Parties with Creativity and Fun!
             </h2>
@@ -93,8 +93,8 @@ const HeroPage = () => {
         </div>
       </div>
       {/* Bottom WEDDING Text */}
-      <div className="flex justify-center items-center mt-8">
-        <h1 className="text-[60px] sm:text-[120px] md:text-[198px] font-bold text-[#b0babf]">
+      <div className="flex justify-center items-center   md:bg-transparent">
+        <h1 className="text-[62px] sm:text-[64px] md:text-[120px] lg:text-[200px] font-bold text-[#b0babf]">
           WEDDING
         </h1>
       </div>

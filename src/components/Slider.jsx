@@ -4,9 +4,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import image1 from "../assets/images/image.svg";
-import image2 from "../assets/images/image.svg";
-import image3 from "../assets/images/image.svg";
+import image1 from "../assets/photos/culture1.jpg";
+import image2 from "../assets/photos/culture2.jpg";
+import image3 from "../assets/photos/culture3.jpg";
 const images = [image1, image2, image3];
 
 const Slider = () => {

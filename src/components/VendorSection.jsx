@@ -1,47 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-
-const Section = styled.div`
-  background-color: #fff5e1;
-`;
-
-const Container = styled.section`
-  max-width: 1200px;
-  margin: auto;
-
-  padding: 4rem 2rem;
-  text-align: center;
-`;
-
-const Title = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 600;
-`;
-
-const ButtonGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-`;
-
-const VendorButton = styled.button`
-  background-color: black;
-  color: white;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  min-width: 130px;
-
-  &:hover {
-    opacity: 0.85;
-  }
-`;
 
 const VendorSection = () => {
   const vendorTypes = [
@@ -57,16 +14,24 @@ const VendorSection = () => {
   ];
 
   return (
-    <Section>
-      <Container>
-        <Title>Build your vendor team</Title>
-        <ButtonGrid>
+    <div className="bg-[#fff5e1] flex flex-col justify-center items-center gap-3">
+      <section className=" mx-auto px-4 py-16 text-center ">
+        <h2 className="text-8xl sm:text-3xl font-semibold mb-10">
+          Build your vendor team
+        </h2>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 place-items-center ">
           {vendorTypes.map((type, index) => (
-            <VendorButton key={index}>{type}</VendorButton>
+            <button
+              key={index}
+              className="bg-black text-white px-6 py-3 rounded-xl text-base min-w-[130px] hover:opacity-85 transition"
+            >
+              {type}
+            </button>
           ))}
-        </ButtonGrid>
-      </Container>
-    </Section>
+        </div>
+      </section>
+    </div>
   );
 };
 

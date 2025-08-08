@@ -1,62 +1,37 @@
-import styled from "styled-components";
+import React from "react";
 import youtubeIcon from "../assets/images/youtube.svg";
 import listImage1 from "../assets/images/youlist.svg";
 import listImage2 from "../assets/images/Listitem.svg";
 
-const Container = styled.div`
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 4rem 0;
-`;
-
-const MainContainer = styled.div`
-  display: flex;
-`;
-
-const Section = styled.div`
-  width: 50%;
-  height: 700px;
-  background-size: cover;
-  background-position: center;
-  position: relative; 
-`;
-
-const FirstSection = styled(Section)`
-  background-image: url(${listImage1});
-`;
-
-const SecondSection = styled(Section)`
-  background-image: url(${listImage2});
-`;
-
-const YoutubeIcon = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  z-index: 2;
-  cursor: pointer;
-
-  @media (max-width: 768px) {
-    width: 70px;
-    height: 70px;
-  }
-`;
-
 const Youtube = () => {
   return (
-    <Container>
-      <MainContainer>
-        <FirstSection>
-          <YoutubeIcon src={youtubeIcon} alt="YouTube 1" />
-        </FirstSection>
-        <SecondSection>
-          <YoutubeIcon src={youtubeIcon} alt="YouTube 2" />
-        </SecondSection>
-      </MainContainer>
-    </Container>
+    <div className="max-w-[1800px] mx-auto py-16 p-3">
+      <div className="flex flex-col md:flex-row">
+        {/* First Section */}
+        <div
+          className="relative w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-[700px] bg-cover bg-center"
+          style={{ backgroundImage: `url(${listImage1})` }}
+        >
+          <img
+            src={youtubeIcon}
+            alt="YouTube 1"
+            className="absolute top-1/2 left-1/2 w-[70px] sm:w-[100px] h-[70px] sm:h-[100px] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10"
+          />
+        </div>
+
+        {/* Second Section */}
+        <div
+          className="relative w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-[700px] bg-cover bg-center"
+          style={{ backgroundImage: `url(${listImage2})` }}
+        >
+          <img
+            src={youtubeIcon}
+            alt="YouTube 2"
+            className="absolute top-1/2 left-1/2 w-[70px] sm:w-[100px] h-[70px] sm:h-[100px] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10"
+          />
+        </div>
+      </div>
+    </div>
   );
 };
 
