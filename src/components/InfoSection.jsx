@@ -1,69 +1,36 @@
 import React from "react";
-import styled from "styled-components";
-
-const Section = styled.div`
-  background-color: #1c1c1c;
-  color: white;
-  border-radius: 30px;
-  padding: 40px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  max-width: 1200px;
-  margin: auto;
-`;
-
-const StatBox = styled.div`
-  text-align: center;
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  p {
-    font-size: 1rem;
-    color: #b0b0b0;
-    margin-top: 10px;
-  }
-`;
-
-const Divider = styled.div`
-  width: 1px;
-  height: 60px;
-  background-color: #4b4b4b;
-`;
 
 const InfoSection = () => {
+  const stats = [
+    { value: "11,500+", label: "Weddings" },
+    { value: "100+", label: "Locations" },
+    { value: "200+", label: "Sessions" },
+    { value: "8HR", label: "Workshops" },
+  ];
+
   return (
-    <Section>
-      <StatBox>
-        <h1>11,500+</h1>
-        <p>weddings</p>
-      </StatBox>
+    <div className="flex flex-col items-center">
+      <div className="flex justify-center max-w-[1190px] mx-auto p-4 flex-col md:flex-row items-center gap-6 mt-8  lg:bg-transparent">
+        {stats.map((stat, index) => (
+          <React.Fragment key={index}>
+            {/* Stat Box */}
+            <div className="text-center">
+              <h1 className="text-[3.5rem] font-bold leading-tight">
+                {stat.value}
+              </h1>
+              <p className="text-sm sm:text-base text-[#b0b0b0] mt-2">
+                {stat.label}
+              </p>
+            </div>
 
-      <Divider />
-
-      <StatBox>
-        <h1>100+</h1>
-        <p>locations</p>
-      </StatBox>
-
-      <Divider />
-
-      <StatBox>
-        <h1>200+</h1>
-        <p>Sessions</p>
-      </StatBox>
-
-      <Divider />
-
-      <StatBox>
-        <h1>8HR</h1>
-        <p>Workshops</p>
-      </StatBox>
-    </Section>
+            {/* Divider (hidden on last item & on mobile) */}
+            {index < stats.length - 1 && (
+              <div className="hidden sm:block w-px h-14 bg-[#4b4b4b]" />
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
   );
 };
 

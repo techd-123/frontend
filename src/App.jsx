@@ -15,16 +15,16 @@ import VenueContainer from "./components/MainVenuePage/VenueSection/VenueContain
 function App() {
   return (
     <div className="app">
-      {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/mobile" element={<MobileForm />} />
-          <Route path="/otp" element={<OTPPage />} />
-          <Route path="/venues" element={<CategoryFilter />} />
-        </Routes>
-      <MainComponent /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/mobile" element={<MobileForm />} />
+        <Route path="/otp" element={<OTPPage />} />
+        {/* <Route path="/venues" element={<CategoryFilter />} /> */}
+      </Routes>
+      {/* <MainComponent />
       <SearchBanner />
       <FilterFlex />
-      <VenueContainer />
+      <VenueContainer /> */}
     </div>
   );
 }

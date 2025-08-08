@@ -1,114 +1,7 @@
-import styled from "styled-components";
 import Star from "../assets/images/star.png";
 import LightBox from "../assets/images/lightbox.png";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
-
-const Section = styled.div`
-  background-color: #ffd16630;
-`;
-const Wrapper = styled.div`
-  background-color: #feef79;
-  margin-top: 20px;
-  border-radius: 0px 0px 80px 80px;
-`;
-const Container = styled.div``;
-const HeaderButton = styled.div`
-  display: flex;
-  gap: 10px;
-`;
-const Button = styled.button`
-  padding: 13.5px 24px 13.89px 24px;
-  border-radius: 50px;
-  background-color: #2f1d41;
-  color: #ffffff;
-  border: none;
-`;
-
-const Main = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 60vh;
-  position: relative;
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-  padding: 10px;
-`;
-
-const Content = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-const Img = styled.img``;
-const ImgContainer = styled.div`
-  position: absolute;
-  top: -60px;
-  left: 10px;
-`;
-
-const HeadText = styled.h1`
-  margin: 0;
-  padding-left: 15px;
-  display: inline-block;
-  font-size: 65px;
-  color: #211f54;
-  font-weight: 700;
-`;
-
-const ParaText = styled.p`
-  /* max-width: 1000px; */
-  color: #6e7191;
-  font-size: 20px;
-  font-weight: 700;
-`;
-const LoginButton = styled(Button)`
-  background-color: #ff6b6b;
-`;
-const ImgDiv = styled.div``;
-const UnlineBtn = styled(Button)`
-  background: none;
-  color: #2f1d41;
-  text-align: center;
-  padding: 10px;
-  font-size: 15px;
-  font-weight: 700;
-`;
-const ButtonDiv = styled.div`
-  margin-top: 10px;
-  display: flex;
-`;
-const TextDiv = styled.div`
-  margin-top: 30px;
-  text-align: start;
-`;
-const SecondWrapper = styled.div`
-  max-width: 1190px;
-  margin: auto;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-top: 30px;
-`;
-const ButtonSecond = styled.div`
-  display: flex;
-  align-items: center;
-`;
-const MainText = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-`;
-const WedText = styled(HeadText)`
-  font-size: 198px;
-  color: #b0babf;
-  font-weight: 700;
-`;
 
 const HeroPage = () => {
   const navigate = useNavigate();
@@ -118,62 +11,94 @@ const HeroPage = () => {
   };
 
   return (
-    <Section>
-      <Wrapper>
-        <Container>
-          <Main>
-            <Content>
-              <ImgContainer>
-                <Img src={Star} alt="Star" />
-              </ImgContainer>
+    <div
+      className="bg-[#ffd16630] bg-repeat"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Ccircle cx='5' cy='5' r='2' fill='%23e6b85c' fill-opacity='0.15'/%3E%3C/svg%3E")`,
+      }}
+    >
+      {/* Top Hero Section */}
+      <div
+        className="bg-[#feef79] mt-5 rounded-b-[80px] flex justify-center"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30 Q15 0 30 30 T60 30 V60 H0 Z' fill='%23e6b85c' fill-opacity='0.1'/%3E%3C/svg%3E")`,
+        }}
+      >
+        <div className="flex flex-col justify-center items-center text-center min-h-[60vh] max-w-[1000px] mx-auto gap-5 p-4 relative">
+          {/* Star Image & Heading */}
+          <div className="relative inline-block">
+            <h1 className="m-0 pl-4 inline-block text-[35px] sm:text-[50px] md:text-[65px] text-[#211f54] font-bold leading-tight">
+              Weddings, Events, Meetups & <br /> Conferences
+            </h1>
+          </div>
 
-              <HeadText>
-                Weddings, Events, Meetups & <br /> Conferences{" "}
-              </HeadText>
-            </Content>
-            <ParaText>
-              "Bringing Your Dream Wedding to Life – Anywhere in the World! ✨💍
-              We specialize in planning, designing, and crafting unforgettable
-              weddings for global clients. Whether it's an intimate ceremony or
-              a grand celebration, we make your special day magical—no matter
-              where you are!"
-            </ParaText>
-            <HeaderButton>
-              <LoginButton onClick={handleExploreClick}>
-                Explore More
-              </LoginButton>
-            </HeaderButton>
-          </Main>
-        </Container>
-      </Wrapper>
-      <Container>
-        <SecondWrapper>
-          <ImgDiv>
-            <Img src={LightBox} alt="Star" />
-          </ImgDiv>
-          <TextDiv>
-            <HeadText>
+          {/* Description */}
+          <p className="text-[#6e7191] text-lg md:text-xl font-semibold">
+            "Bringing Your Dream Wedding to Life – Anywhere in the World! ✨💍
+            We specialize in planning, designing, and crafting unforgettable
+            weddings for global clients. Whether it's an intimate ceremony or a
+            grand celebration, we make your special day magical—no matter where
+            you are!"
+          </p>
+
+          {/* Button */}
+          <div>
+            <button
+              onClick={handleExploreClick}
+              className="px-6 py-3 rounded-full bg-[#ff6b6b] text-white hover:bg-[#e45b5b] transition font-medium"
+            >
+              Explore More
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Second Section */}
+      <div className="flex flex-col  items-center">
+        <div className="max-w-[1200px] w-full m-auto p-4 flex flex-col md:flex-row items-center justify-center gap-6 mt-8">
+          {/* Image */}
+          <div className="flex-shrink-0">
+            <img
+              src={LightBox}
+              alt="LightBox"
+              className="w-full max-w-[400px]"
+            />
+          </div>
+
+          {/* Text Content */}
+          <div className="mt-4 md:mt-0  ">
+            <h2 className="text-[28px] sm:text-[35px] md:text-[42px] font-bold text-[#211f54]">
               Crafting Unforgettable wedding Parties with Creativity and Fun!
-            </HeadText>
-            <ParaText>
+            </h2>
+            <p className="text-[#6e7191] text-lg md:text-xl font-semibold mt-3">
               Join us in creating a celebration your child will remember
               forever. From themed parties to enchanting decorations, we bring
               dreams to life!
-            </ParaText>
-            <ButtonDiv>
-              <Button>CONNECT US</Button>
-              <ButtonSecond>
-                <UnlineBtn>CONNECT US</UnlineBtn>
-                <ArrowForwardIcon />
-              </ButtonSecond>
-            </ButtonDiv>
-          </TextDiv>
-        </SecondWrapper>
-        <MainText>
-          <WedText>WEDDING</WedText>
-        </MainText>
-      </Container>
-    </Section>
+            </p>
+
+            {/* Buttons */}
+            <div className="flex flex-col   sm:flex-row items-start sm:items-center gap-4 mt-5">
+              <button className="px-6 py-3 rounded-full bg-[#2f1d41] text-white hover:bg-[#241330] transition font-medium">
+                CONNECT US
+              </button>
+
+              <div className="flex items-center gap-2 cursor-pointer">
+                <button className="bg-transparent text-[#2f1d41] font-bold text-sm">
+                  CONNECT US
+                </button>
+                <ArrowForwardIcon className="text-[#2f1d41]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Bottom WEDDING Text */}
+      <div className="flex justify-center items-center mt-8">
+        <h1 className="text-[60px] sm:text-[120px] md:text-[198px] font-bold text-[#b0babf]">
+          WEDDING
+        </h1>
+      </div>
+    </div>
   );
 };
 
