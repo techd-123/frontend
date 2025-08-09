@@ -1,15 +1,14 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
-import styled from 'styled-components';
-import Slider from 'react-slick';
-import { FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
-
+import styled from "styled-components";
+import Slider from "react-slick";
+import { FaUsers, FaMapMarkerAlt } from "react-icons/fa";
 
 import image1 from "../assets/photos/beach1.jpg";
 import image2 from "../assets/photos/heritage.jpg";
 import image3 from "../assets/photos/resort.jpg";
+import { Link } from "react-router-dom";
 // ---------- Styled Components ----------
 const Wrapper = styled.div`
   background: #fdfdfd;
@@ -29,7 +28,7 @@ const Card = styled.div`
   padding: 16px;
   max-width: 300px;
   margin: auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: 0.3s;
 
   &:hover {
@@ -88,33 +87,37 @@ const ArrowButton = styled.div`
 `;
 
 const PrevArrow = ({ onClick }) => (
-  <ArrowButton style={{ left: -20 }} onClick={onClick}>‹</ArrowButton>
+  <ArrowButton style={{ left: -20 }} onClick={onClick}>
+    ‹
+  </ArrowButton>
 );
 const NextArrow = ({ onClick }) => (
-  <ArrowButton style={{ right: -20 }} onClick={onClick}>›</ArrowButton>
+  <ArrowButton style={{ right: -20 }} onClick={onClick}>
+    ›
+  </ArrowButton>
 );
 
 // ---------- Component ----------
 const destinations = [
   {
-    tag: 'Premium',
-    name: 'The Beach Wedddings',
-    capacity: '1000',
-    location: 'Kovalam, Thiruvananthapuram',
+    tag: "Premium",
+    name: "The Beach Wedddings",
+    capacity: "1000",
+    location: "Kovalam, Thiruvananthapuram",
     image: image1,
   },
   {
-    tag: 'Budget friendly',
-    name: 'Munnar Hills Resorts',
-    capacity: '1500',
-    location: 'Munnar Hills, Munnar',
+    tag: "Budget friendly",
+    name: "Munnar Hills Resorts",
+    capacity: "1500",
+    location: "Munnar Hills, Munnar",
     image: image2,
   },
   {
-    tag: 'Popular',
-    name: 'Heritage Moments',
-    capacity: '1000',
-    location: 'Fort Kochi, Kochi',
+    tag: "Popular",
+    name: "Heritage Moments",
+    capacity: "1000",
+    location: "Fort Kochi, Kochi",
     image: image3,
   },
 ];
@@ -143,13 +146,19 @@ const WeddingDestinationsSlider = () => {
       <Title>Popular Wedding Destinations</Title>
       <Slider {...settings}>
         {destinations.map((d, idx) => (
-          <Card key={idx}>
-            <Img src={d.image} alt={d.name} />
-            <Tag>{d.tag}</Tag>
-            <ResortName>{d.name}</ResortName>
-            <Info><FaUsers /> {d.capacity}, capacity</Info>
-            <Info><FaMapMarkerAlt /> {d.location}</Info>
-          </Card>
+          <Link key={idx} to="/venues" style={{ textDecoration: "none" }}>
+            <Card key={idx}>
+              <Img src={d.image} alt={d.name} />
+              <Tag>{d.tag}</Tag>
+              <ResortName>{d.name}</ResortName>
+              <Info>
+                <FaUsers /> {d.capacity}, capacity
+              </Info>
+              <Info>
+                <FaMapMarkerAlt /> {d.location}
+              </Info>
+            </Card>
+          </Link>
         ))}
       </Slider>
     </Wrapper>

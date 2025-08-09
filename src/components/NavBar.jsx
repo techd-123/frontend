@@ -3,6 +3,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import Group from "../assets/images/Group.png";
 import RegisterPage from "../components/authPage/RegisterPage";
 import LoginPage from "../components/authPage/LoginPage";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [showRegisterPage, setShowRegisterPage] = useState(false);
@@ -25,7 +26,10 @@ const NavBar = () => {
           </div>
 
           {/* Hamburger Menu Icon */}
-          <div className="md:hidden text-2xl cursor-pointer" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <div
+            className="md:hidden text-2xl cursor-pointer"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
             {mobileMenuOpen ? <FiX /> : <FiMenu />}
           </div>
 
@@ -35,10 +39,17 @@ const NavBar = () => {
               mobileMenuOpen ? "flex" : "hidden"
             } md:flex flex-col md:flex-row gap-6 md:gap-8 font-semibold md:items-center w-full md:w-auto bg-white md:bg-transparent mt-4 md:mt-0 p-4 md:p-0 border-t md:border-none`}
           >
-            <li className="hover:text-red-500 cursor-pointer">Home</li>
-            <li className="hover:text-red-500 cursor-pointer">Events</li>
+            <Link to="/">
+              {" "}
+              <li className="hover:text-red-500 cursor-pointer">Home</li>
+            </Link>
+            <Link>
+              <li className="hover:text-red-500 cursor-pointer">Events</li>
+            </Link>
             <li className="hover:text-red-500 cursor-pointer">Vendors</li>
-            <li className="hover:text-red-500 cursor-pointer">Services</li>
+            <Link to="/services">
+              <li className="hover:text-red-500 cursor-pointer">Services</li>
+            </Link>
             <li className="hover:text-red-500 cursor-pointer">About Us</li>
 
             {/* Buttons */}

@@ -11,6 +11,8 @@ import FilterPanel from "./components/MainVenuePage/FilterSection/FilterPanel";
 import VenueCards from "./components/MainVenuePage/FilterSection/VenueCards";
 import FilterFlex from "./components/MainVenuePage/FilterSection/FilterFlex";
 import VenueContainer from "./components/MainVenuePage/VenueSection/VenueContainer";
+import AboutPage from "./components/About/AboutPage";
+import CategoryFilter from "./components/Category/CategoryFilter";
 
 function App() {
   return (
@@ -19,7 +21,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/mobile" element={<MobileForm />} />
         <Route path="/otp" element={<OTPPage />} />
-        {/* <Route path="/venues" element={<CategoryFilter />} /> */}
+        <Route path= "/services" element={<AboutPage/>}/>
+        <Route path="/venues" element={<CategoryFilter/>}/>
       </Routes>
       {/* <MainComponent />
       <SearchBanner />

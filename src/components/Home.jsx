@@ -16,13 +16,19 @@ const Home = () => {
     <>
       <NavBar />
       <HeroPage />
-      <InfoSection />
+      <div className="hidden sm:block">
+        <InfoSection />
+      </div>
       <Slider />
       <VendorSection />
-      <WeddingToolsSection />
-      <WeddingServices />
+      {/* <WeddingToolsSection /> */}
+      <div className="hidden sm:block">
+        <WeddingServices />
+      </div>
       <WeddingDestinationsSlider />
-      <Accordion />
+      <div className="hidden sm:block">
+        <Accordion />
+      </div>{" "}
       <Youtube />
       <Connect />
       <Footer />

@@ -20,9 +20,7 @@ const HeroPage = () => {
       {/* Top Hero Section */}
       <div
         className="bg-white lg:bg-[#feef79] mt-5 rounded-b-[80px] flex justify-center"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30 Q15 0 30 30 T60 30 V60 H0 Z' fill='%23e6b85c' fill-opacity='0.1'/%3E%3C/svg%3E")`,
-        }}
+       
       >
         <div className="flex flex-col justify-center items-center text-center min-h-[60vh] max-w-[1000px] mx-auto gap-5 p-4 relative">
           {/* Star Image & Heading */}
@@ -33,7 +31,7 @@ const HeroPage = () => {
           </div>
 
           {/* Description */}
-          <p className="hidden lg:block text-[#6e7191] text-lg md:text-xl font-semibold">
+          <p className=" hidden lg:block text-[#6e7191] text-lg md:text-xl font-semibold">
             "Bringing Your Dream Wedding to Life – Anywhere in the World! ✨💍
             We specialize in planning, designing, and crafting unforgettable
             weddings for global clients. Whether it's an intimate ceremony or a
@@ -45,7 +43,7 @@ const HeroPage = () => {
           <div>
             <button
               onClick={handleExploreClick}
-              className="hidden px-6 py-3 rounded-full bg-[#ff6b6b] text-white hover:bg-[#e45b5b] transition font-medium"
+              className="hidden lg:block px-6 py-3 rounded-full bg-[#ff6b6b] text-white hover:bg-[#e45b5b] transition font-medium"
             >
               Explore More
             </button>
@@ -61,16 +59,16 @@ const HeroPage = () => {
             <img
               src={LightBox}
               alt="LightBox"
-              className="w-full max-w-[400px] hidden"
+              className=" hidden lg:block w-full max-w-[400px] "
             />
           </div>
 
           {/* Text Content */}
-          <div className="mt-4 md:mt-0 flex flex-col gap-6 items-center">
+          <div className="mt-4 md:mt-0 flex flex-col gap-6 ">
             <h2 className=" text-[28px] sm:text-[35px] md:text-[42px] font-bold text-[#211f54] ">
               Crafting Unforgettable wedding Parties with Creativity and Fun!
             </h2>
-            <p className="text-[#6e7191] text-lg md:text-xl font-semibold mt-3 hidden ">
+            <p className="hidden lg:block text-[#6e7191] text-lg md:text-xl font-semibold mt-3">
               Join us in creating a celebration your child will remember
               forever. From themed parties to enchanting decorations, we bring
               dreams to life!
@@ -82,9 +80,7 @@ const HeroPage = () => {
                 CONNECT US
               </button>
 
-              <div className="flex items-center gap-2 cursor-pointer">
-               
-              </div>
+              <div className="flex items-center gap-2 cursor-pointer"></div>
             </div>
           </div>
         </div>

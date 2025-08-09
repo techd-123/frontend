@@ -9,8 +9,8 @@ const InfoSection = () => {
   ];
 
   return (
-    <div className=" flex-col items-center hidden">
-      <div className="flex justify-center max-w-[1190px] mx-auto p-4 flex-col md:flex-row items-center gap-6 mt-8  lg:bg-transparent">
+    <div className=" flex-col items-center m-10">
+      <div className="flex justify-center  mx-auto p-4 flex-col md:flex-row items-center gap-6 mt-8  lg:bg-transparent">
         {stats.map((stat, index) => (
           <React.Fragment key={index}>
             {/* Stat Box */}
