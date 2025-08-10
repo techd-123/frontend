@@ -22,7 +22,7 @@ const NavBar = () => {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <img src={Group} alt="Logo" className="w-10" />
-            <h2 className="text-lg font-bold">PLAN A</h2>
+            <h2 className="text-lg font-bold">PLAN IT HERE</h2>
           </div>
 
           {/* Hamburger Menu Icon */}

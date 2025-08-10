@@ -1,5 +1,6 @@
 import React from "react";
 import slider1 from "../assets/photos/slider1.jpg"; // import image
+import { Link } from "react-router-dom";
 
 const VendorSection = () => {
   // Import images for all vendors (you can replace with different ones later)
@@ -24,18 +25,22 @@ const VendorSection = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 place-items-center">
           {vendorTypes.map((vendor, index) => (
-            <button
+            <Link
               key={index}
-              style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${vendor.img})`,
-              }}
-              className="bg-center bg-cover bg-no-repeat rounded-xl min-w-[130px] h-32 sm:h-40 w-full flex items-center justify-center text-white font-semibold hover:opacity-85 transition"
+              to={`/vendor/${vendor.name.toLowerCase().replace(/\s+/g, "-")}`}
+              className="w-full"
             >
-              {/* Overlay for readability */}
-              <div className="text-[19px] bg-opacity-50 px-2 py-1 rounded">
-                {vendor.name}
+              <div
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${vendor.img})`,
+                }}
+                className="bg-center bg-cover bg-no-repeat rounded-xl min-w-[130px] h-32 sm:h-40 w-full flex items-center justify-center text-white font-semibold hover:opacity-85 transition"
+              >
+                <div className="text-[19px] bg-opacity-50 px-2 py-1 rounded">
+                  {vendor.name}
+                </div>
               </div>
-            </button>
+            </Link>
           ))}
         </div>
       </section>
