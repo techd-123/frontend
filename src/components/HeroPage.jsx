@@ -18,10 +18,7 @@ const HeroPage = () => {
       }}
     >
       {/* Top Hero Section */}
-      <div
-        className="bg-white lg:bg-[#feef79] mt-5 rounded-b-[80px] flex justify-center"
-       
-      >
+      <div className="bg-white lg:bg-[#feef79] mt-5 rounded-b-[80px] flex justify-center">
         <div className="flex flex-col justify-center items-center text-center min-h-[60vh] max-w-[1000px] mx-auto gap-5 p-4 relative">
           {/* Star Image & Heading */}
           <div className="relative inline-block">

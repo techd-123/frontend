@@ -11,9 +11,11 @@ import Connect from "./Connect";
 import Footer from "./Footer";
 import WeddingDestinationsSlider from "./WeddingDestinationsSlider";
 import WeddingToolsSection from "./WeddingToolsSection";
+import UnderMaintenance from "./Mesages/UnderMaintenance";
 const Home = () => {
   return (
     <>
+      <UnderMaintenance />
       <NavBar />
       <HeroPage />
       <div className="hidden sm:block">
