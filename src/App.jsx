@@ -25,6 +25,7 @@ function App() {
         <Route path="/services" element={<AboutPage />} />
         <Route path="/venues" element={<CategoryFilter />} />
         <Route path="/vendor/:vendorName" element={<VendorDetail />} />
+        <Route path="/filter" element={<FilterFlex />} />
       </Routes>
       {/* <MainComponent />
       <SearchBanner />

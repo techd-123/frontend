@@ -1,19 +1,24 @@
 import React from "react";
-import slider1 from "../assets/photos/slider1.jpg"; // import image
+import slider1 from "../assets/photos/makeup.jpg";
+import slider2 from "../assets/photos/bridalwear.jpg"; // import image
+import slider3 from "../assets/photos/groomwear.jpg"; // import image
+import slider4 from "../assets/photos/mehendi.jpg"; // import image
+import slider5 from "../assets/photos/decors.jpg"; // import image
+import slider6 from "../assets/photos/photography.jpg"; // import image
+import slider7 from "../assets/photos/cakes.jpg"; // import image
+
+// import image
 import { Link } from "react-router-dom";
 
 const VendorSection = () => {
-  // Import images for all vendors (you can replace with different ones later)
   const vendorTypes = [
-    { name: "Rentals", img: slider1 },
+    { name: "Decors", img: slider5 },
     { name: "Beauty", img: slider1 },
-    { name: "Bridal Salons", img: slider1 },
-    { name: "Videographers", img: slider1 },
-    { name: "Florists", img: slider1 },
-    { name: "Venues", img: slider1 },
-    { name: "Wedding Planners", img: slider1 },
-    { name: "Florists", img: slider1 },
-    { name: "View all", img: slider1 },
+    { name: "Bridal wear", img: slider2 },
+    { name: "Videographers", img: slider6 },
+    { name: "Cakes and Drinks", img: slider7 },
+    { name: "Groom Wear", img: slider3 },
+    { name: "Mehendi", img: slider4 },
   ];
 
   return (
@@ -25,11 +30,7 @@ const VendorSection = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 place-items-center">
           {vendorTypes.map((vendor, index) => (
-            <Link
-              key={index}
-              to={`/vendor/${vendor.name.toLowerCase().replace(/\s+/g, "-")}`}
-              className="w-full"
-            >
+            <Link key={index} to="filter" className="w-full">
               <div
                 style={{
                   backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${vendor.img})`,

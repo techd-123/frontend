@@ -4,9 +4,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import image1 from "../assets/photos/culture1.jpg";
-import image2 from "../assets/photos/culture2.jpg";
-import image3 from "../assets/photos/culture3.jpg";
+import image1 from "../assets/photos/kweding.jpg";
+import image2 from "../assets/photos/kathkali.jpg";
+import image3 from "../assets/photos/kcouples.jpg";
 const images = [
   { src: image1, text: "Discover the Rich Culture" },
   { src: image2, text: "A Journey Through Tradition" },

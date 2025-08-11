@@ -1,85 +1,40 @@
 import React from "react";
-import styled from "styled-components";
 import { FiMapPin, FiUsers } from "react-icons/fi";
-
-const Card = styled.div`
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-`;
-
-const Info = styled.div`
-  padding: 16px;
-  flex: 1;
-`;
-
-const Title = styled.h4`
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 6px;
-`;
-
-const Location = styled.p`
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-`;
-
-const Meta = styled.div`
-  font-size: 14px;
-  display: flex;
-  gap: 16px;
-  color: #333;
-
-  svg {
-    margin-right: 4px;
-  }
-`;
-
-const Button = styled.button`
-  border: 2px solid #fc5c65;
-  color: #fc5c65;
-  background: transparent;
-  border-radius: 999px;
-  padding: 10px;
-  margin: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-
-  &:hover {
-    background-color: #fc5c65;
-    color: #fff;
-  }
-`;
 
 const VenueCard = ({ title, location, price, capacity, image }) => {
   return (
-    <Card>
-      <Image src={image} alt={title} />
-      <Info>
-        <Title>{title}</Title>
-        <Location>{location}</Location>
-        <Meta>
-          <span>
-            <FiMapPin /> From {price}
+    <div className="border border-gray-300 rounded-xl overflow-hidden bg-white flex flex-col shadow-sm hover:shadow-md transition">
+      {/* Image */}
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-40 sm:h-48 object-cover"
+      />
+
+      {/* Info */}
+      <div className="p-4 flex-1">
+        {/* Title */}
+        <h4 className="text-base sm:text-lg font-semibold mb-1">{title}</h4>
+
+        {/* Location */}
+        <p className="text-sm text-gray-600 mb-3">{location}</p>
+
+        {/* Meta */}
+        <div className="text-sm flex flex-wrap gap-4 text-gray-800">
+          <span className="flex items-center">
+            <FiMapPin className="mr-1 text-gray-500" /> From {price}
           </span>
-          <span>
-            <FiUsers /> {capacity}
+          <span className="flex items-center">
+            <FiUsers className="mr-1 text-gray-500" /> {capacity}
           </span>
-        </Meta>
-      </Info>
-      <Button>Request Pricing</Button>
-    </Card>
+        </div>
+      </div>
+
+      {/* Button */}
+      <button className="border-2 border-[#fc5c65] text-[#fc5c65] rounded-full px-5 py-2 mx-4 mb-4 font-semibold hover:bg-[#fc5c65] hover:text-white transition">
+        Request Pricing
+      </button>
+    </div>
   );
 };
 

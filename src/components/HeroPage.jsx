@@ -42,7 +42,7 @@ const HeroPage = () => {
               onClick={handleExploreClick}
               className="hidden lg:block px-6 py-3 rounded-full bg-[#ff6b6b] text-white hover:bg-[#e45b5b] transition font-medium"
             >
-              Explore More
+              Connect with Us
             </button>
           </div>
         </div>
@@ -74,7 +74,7 @@ const HeroPage = () => {
             {/* Buttons */}
             <div className="flex flex-col   sm:flex-row items-start sm:items-center gap-4 mt-5">
               <button className="px-6 py-3 rounded-full bg-[#2f1d41] text-white hover:bg-[#241330] transition font-medium">
-                CONNECT US
+                Explore More
               </button>
 
               <div className="flex items-center gap-2 cursor-pointer"></div>

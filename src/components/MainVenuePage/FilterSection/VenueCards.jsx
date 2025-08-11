@@ -1,48 +1,5 @@
 import React from "react";
-import styled from "styled-components";
 import VenueCard from "./VenueCard";
-
-const VenueWrapper = styled.div`
-  flex: 1;
-  padding: 30px;
-  overflow-y: auto;
-`;
-
-const Header = styled.div`
-  margin-bottom: 20px;
-`;
-
-const TitleTabs = styled.div`
-  display: flex;
-  gap: 20px;
-  font-size: 20px;
-  font-weight: 600;
-
-  span {
-    cursor: pointer;
-    padding-bottom: 4px;
-  }
-
-  span.active {
-    border-bottom: 3px solid black;
-  }
-`;
-
-const SubText = styled.div`
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
-  background-color: #eaf8f6;
-  padding: 8px 14px;
-  border-radius: 6px;
-  width: fit-content;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-`;
 
 const VenueCards = () => {
   // Sample data
@@ -92,23 +49,32 @@ const VenueCards = () => {
   ];
 
   return (
-    <VenueWrapper>
-      <Header>
-        <TitleTabs>
-          <span className="active">Venues</span>
-          <span>Vendors</span>
-        </TitleTabs>
-        <SubText>
-          Find your kind of place for the celebration to go down.
-        </SubText>
-      </Header>
+    <div className="flex-1 p-4 md:p-6 lg:p-8 overflow-y-auto">
+      {/* Header */}
+      <div className="mb-5">
+        {/* Tabs */}
+        <div className="flex gap-5 text-lg md:text-xl font-semibold">
+          <span className="cursor-pointer pb-1 border-b-2 border-black">
+            Venues
+          </span>
+          <span className="cursor-pointer pb-1 hover:border-b-2 hover:border-gray-500">
+            Vendors
+          </span>
+        </div>
 
-      <Grid>
+        {/* Subtext */}
+        <div className="mt-3 text-sm text-gray-700 bg-[#eaf8f6] px-4 py-2 rounded-md w-fit">
+          Find your kind of place for the celebration to go down.
+        </div>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {venues.map((venue, index) => (
           <VenueCard key={index} {...venue} />
         ))}
-      </Grid>
-    </VenueWrapper>
+      </div>
+    </div>
   );
 };
 

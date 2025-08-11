@@ -30,10 +30,17 @@ const Home = () => {
       <WeddingDestinationsSlider />
       <div className="hidden sm:block">
         <Accordion />
-      </div>{" "}
-      <Youtube />
+      </div>
+
+      <div className="hidden sm:block">
+        <Youtube />
+      </div>
+
       <Connect />
-      <Footer />
+
+      <div className="hidden sm:block">
+        <Footer />
+      </div>
     </>
   );
 };
