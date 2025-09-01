@@ -8,28 +8,24 @@ import img4 from "/images/nested/slider4.jpg";
 const images = [img1, img2, img3, img4];
 
 const Accordion = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0); // 🔹 First card enlarged by default
 
   return (
     <div
       className="
         grid grid-cols-1 sm:grid-cols-2 lg:flex 
         w-full h-auto lg:h-[300px] 
-        overflow-hidden rounded-2xl  p-3
+        overflow-hidden rounded-2xl p-3
       "
     >
       {images.map((img, index) => (
         <div
           key={index}
           onMouseEnter={() => setActiveIndex(index)}
-          onMouseLeave={() => setActiveIndex(null)}
+          onMouseLeave={() => setActiveIndex(0)} // 🔹 Reset to first card when hover ends
           className={`
             relative bg-center bg-cover cursor-pointer transition-all duration-500
-            ${
-              activeIndex === index && window.innerWidth >= 1024
-                ? "flex-[4]"
-                : "flex-1"
-            }
+            ${activeIndex === index ? "flex-[4]" : "flex-1"}
             h-[200px] sm:h-[250px] lg:h-auto
           `}
           style={{ backgroundImage: `url(${img})` }}
@@ -42,9 +38,10 @@ const Accordion = () => {
                 "linear-gradient(to bottom, #E783B52E 18%, #261539 100%)",
             }}
           ></div>
-          {/* 🔹 Text above overlay */}
+
+          {/* 🔹 Text */}
           <div className="absolute bottom-5 left-5 text-white text-lg sm:text-xl font-bold drop-shadow-lg z-10">
-            <h2>Creative Themes for Unforgettable Memories</h2>{" "}
+            <h2>Creative Themes for Unforgettable Memories</h2>
           </div>
         </div>
       ))}

@@ -9,42 +9,67 @@ const VenueCards = () => {
       location: "Ambalamukku, Thiruvananthapuram",
       price: "₹500",
       capacity: "10 to 100",
-      image: "https://source.unsplash.com/400x300/?wedding",
+      image:
+        "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg",
     },
     {
       title: "O by Tamara",
       location: "Ambalamukku, Thiruvananthapuram",
       price: "₹1600",
       capacity: "10 to 1000",
-      image: "https://source.unsplash.com/400x300/?hotel",
+      image:
+        "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg",
     },
     {
       title: "The Leela Kovalam",
       location: "Kovalam, Thiruvananthapuram",
       price: "₹500",
       capacity: "10 to 100",
-      image: "https://source.unsplash.com/400x300/?resort",
+      image: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg",
     },
     {
       title: "Ambara Suites",
       location: "Ambalamukku, Thiruvananthapuram",
       price: "₹500",
       capacity: "10 to 100",
-      image: "https://source.unsplash.com/400x300/?wedding",
+      image: "https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg",
     },
     {
       title: "O by Tamara",
       location: "Ambalamukku, Thiruvananthapuram",
       price: "₹1600",
       capacity: "10 to 1000",
-      image: "https://source.unsplash.com/400x300/?hotel",
+      image: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
     },
     {
       title: "The Leela Kovalam",
       location: "Kovalam, Thiruvananthapuram",
       price: "₹500",
       capacity: "10 to 100",
-      image: "https://source.unsplash.com/400x300/?resort",
+      image:
+        "https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg",
+    },
+    {
+      title: "Ambara Suites",
+      location: "Ambalamukku, Thiruvananthapuram",
+      price: "₹500",
+      capacity: "10 to 100",
+      image: "https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg",
+    },
+    {
+      title: "O by Tamara",
+      location: "Ambalamukku, Thiruvananthapuram",
+      price: "₹1600",
+      capacity: "10 to 1000",
+      image: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
+    },
+    {
+      title: "The Leela Kovalam",
+      location: "Kovalam, Thiruvananthapuram",
+      price: "₹500",
+      capacity: "10 to 100",
+      image:
+        "https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg",
     },
   ];
 

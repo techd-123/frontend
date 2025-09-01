@@ -22,19 +22,19 @@ const cities = [
 const CitiesSection = () => {
   return (
     <section
-      className="relative py-16 px-6 md:px-12 lg:px-20 bg-cover bg-center"
+      className="relative py-16 px-6 md:px-12 lg:px-20 bg-cover bg-center flex justify-center"
       style={{ backgroundImage: "url('/images/Rectangle 6480.png')" }} // 🔹 replace with your background
     >
       {/* Overlay */}
 
       {/* Content */}
       <div className="relative z-10 text-center text-white">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10 p-5">
           Cities We Serve
         </h2>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto ">
           {cities.map((city, idx) => (
             <div
               key={idx}

@@ -2,8 +2,8 @@ import React from "react";
 
 const ConfusedSection = () => {
   return (
-    <section className="bg-[#f9efe9] py-12 px-4">
-      <div className="max-w-5xl mx-auto text-center border border-purple-400 rounded-lg p-8">
+    <section className="bg-[#f9efe9] py-12 px-4 flex justify-center items-center  ">
+      <div className="max-w-5xl w-full text-center border border-purple-400 rounded-lg p-8 flex flex-col gap-5 ">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl font-bold text-[#3b0b3e] mb-2">
           Still Confused On Your Decision ?

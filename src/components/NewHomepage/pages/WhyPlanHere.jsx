@@ -14,37 +14,43 @@ const WhyPlanHere = () => {
       icon: <FaUser size={28} />,
       title: "Personalized Dashboard",
       desc: "Organize every wedding detail",
+      bgColor: "bg-[#905BA3]",
     },
     {
       icon: <FaWallet size={28} />,
       title: "Budget & Expense Tracker",
       desc: "Organize every wedding detail",
+      bgColor: "bg-[#E783B5]",
     },
     {
       icon: <FaCalendarAlt size={28} />,
       title: "Vendor Booking System",
       desc: "Find top-rated vendors to bring your vision to life.",
+      bgColor: "bg-[#E783B5]",
     },
     {
       icon: <FaListAlt size={28} />,
       title: "Guest List & RSVP Manager",
       desc: "Streamline invitations, track responses, and many more.",
+      bgColor: "bg-[#905BA3]",
     },
     {
       icon: <FaGlobe size={28} />,
       title: "Live Tracking & Updates",
       desc: "Organize every wedding detail",
+      bgColor: "bg-[#E783B5]",
     },
     {
       icon: <FaComments size={28} />,
       title: "Live Chat & Notifications",
       desc: "Get instant updates, important notifications in your fingertips.",
+      bgColor: "bg-[#905BA3]",
     },
   ];
 
   return (
     <section className="bg-[#F0F0FC] py-12 px-6 md:px-12 lg:px-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Content */}
         <div>
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
@@ -63,11 +69,12 @@ const WhyPlanHere = () => {
             {features.map((feature, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-4  rounded-lg p-4 hover:shadow-lg transition"
+                className="flex items-start gap-4 rounded-lg p-4 hover:shadow-lg transition"
               >
-                <div className="p-3 bg-purple-700 text-white rounded-lg">
+                <div className={`p-3 ${feature.bgColor} text-white rounded-lg`}>
                   {feature.icon}
                 </div>
+
                 <div>
                   <h3 className="font-semibold text-gray-900">
                     {feature.title}
@@ -82,9 +89,9 @@ const WhyPlanHere = () => {
         {/* Right Image */}
         <div className="flex justify-center">
           <img
-            src="/images/third.svg" // 🔹 replace with your image in public/images
+            src="/images/third.svg"
             alt="Why Plan Here"
-            className="rounded-lg  w-full max-w-md object-cover"
+            className="rounded-lg w-full max-w-md object-cover"
           />
         </div>
       </div>

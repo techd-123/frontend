@@ -1,19 +1,6 @@
 // App.js or Home.js
-
 import React from "react";
-import styled from "styled-components";
 import VenueCard from "./VenueCard";
-
-const Container = styled.div`
-  max-width: 1440px;
-  margin: auto;
-`;
-
-const CardGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-`;
 
 const sampleVenues = [
   {
@@ -22,9 +9,9 @@ const sampleVenues = [
     price: "₹500",
     capacity: "10 to 100",
     images: [
-      "/images/kumarakom1.jpg",
-      "/images/kumarakom2.jpg",
-      "/images/kumarakom3.jpg",
+      "https://images.pexels.com/photos/28700142/pexels-photo-28700142.jpeg",
+      "https://images.pexels.com/photos/33249971/pexels-photo-33249971.jpeg",
+      "https://images.pexels.com/photos/33329096/pexels-photo-33329096.jpeg",
     ],
   },
   {
@@ -32,7 +19,7 @@ const sampleVenues = [
     location: "Alappuzha City, Alappuzha",
     price: "₹500",
     capacity: "10 to 100",
-    images: ["/images/alleppey1.jpg", "/images/alleppey2.jpg"],
+    images: ["https://images.pexels.com/photos/2845950/pexels-photo-2845950.jpeg", "https://images.pexels.com/photos/15698107/pexels-photo-15698107.jpeg"],
   },
   {
     title: "Kumarakom Lake Resort, Kerala",
@@ -40,9 +27,8 @@ const sampleVenues = [
     price: "₹500",
     capacity: "10 to 100",
     images: [
-      "/images/kumarakom1.jpg",
-      "/images/kumarakom2.jpg",
-      "/images/kumarakom3.jpg",
+      "https://images.pexels.com/photos/11428111/pexels-photo-11428111.jpeg",
+      "https://images.pexels.com/photos/2845950/pexels-photo-2845950.jpeg",
     ],
   },
   {
@@ -50,19 +36,23 @@ const sampleVenues = [
     location: "Alappuzha City, Alappuzha",
     price: "₹500",
     capacity: "10 to 100",
-    images: ["/images/alleppey1.jpg", "/images/alleppey2.jpg"],
+    images: ["https://images.pexels.com/photos/27489411/pexels-photo-27489411.jpeg", "https://images.pexels.com/photos/11428111/pexels-photo-11428111.jpeg"],
   },
 ];
 
 export default function VenueContainer() {
   return (
-    <Container>
-      <h2>Other options near Thiruvananthapuram:</h2>
-      <CardGrid>
+    <div className="flex flex-col items-center max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h2 className="text-xl sm:text-2xl font-semibold mb-6">
+        Other options near Thiruvananthapuram:
+      </h2>
+
+      {/* Responsive grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {sampleVenues.map((venue, index) => (
           <VenueCard key={index} {...venue} />
         ))}
-      </CardGrid>
-    </Container>
+      </div>
+    </div>
   );
 }
