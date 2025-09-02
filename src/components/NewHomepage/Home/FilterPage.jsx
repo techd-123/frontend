@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../common/Header";
-import Footer from "../common/footer";
+import Footer from "../common/Footer";
 import HeroSearch from "./VendorPage/HeroSearch";
 import FilterFlex from "../../MainVenuePage/FilterSection/FilterFlex";
 import Accordion from "../pages/Accordion";
