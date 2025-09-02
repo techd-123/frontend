@@ -1,11 +1,35 @@
 import React, { useState } from "react";
 
 import img1 from "/images/nested/slider1.jpg";
-import img2 from "/images/nested/slider2.jpg";
+import img2 from "/img/kcouples.jpg";
 import img3 from "/images/nested/slider3.jpg";
 import img4 from "/images/nested/slider4.jpg";
+import img5 from "/img/kathkali.jpg";
 
-const images = [img1, img2, img3, img4];
+// 🔹 Array of card data (image + text + button)
+const cards = [
+  {
+    image: img1,
+    buttonText: "Wedding Celebrations",
+  },
+  {
+    image: img2,
+    title: "Kerala  Weddings",
+    buttonText: "Kerala  Weddings",
+  },
+  {
+    image: img3,
+    buttonText: "Birthday Parties",
+  },
+  {
+    image: img4,
+    buttonText: "Baptism",
+  },
+  {
+    image: img5,
+    buttonText: "Cultural Gatherings",
+  },
+];
 
 const Accordion = () => {
   const [activeIndex, setActiveIndex] = useState(0); // 🔹 First card enlarged by default
@@ -14,21 +38,27 @@ const Accordion = () => {
     <div
       className="
         grid grid-cols-1 sm:grid-cols-2 lg:flex 
-        w-full h-auto lg:h-[300px] 
-        overflow-hidden rounded-2xl p-3
+        w-full h-auto lg:h-[500px]   
+        overflow-hidden rounded-2xl p-3 gap-4
       "
     >
-      {images.map((img, index) => (
+      {cards.map((card, index) => (
         <div
           key={index}
           onMouseEnter={() => setActiveIndex(index)}
-          onMouseLeave={() => setActiveIndex(0)} // 🔹 Reset to first card when hover ends
+          onMouseLeave={() => setActiveIndex(null)}
           className={`
             relative bg-center bg-cover cursor-pointer transition-all duration-500
-            ${activeIndex === index ? "flex-[4]" : "flex-1"}
-            h-[200px] sm:h-[250px] lg:h-auto
+            ${
+              activeIndex === index
+                ? "w-[615px]"
+                : index === 0
+                ? "w-[615px]" /* First one always bigger */
+                : "w-[300px]"
+            }
+            h-[500px]
           `}
-          style={{ backgroundImage: `url(${img})` }}
+          style={{ backgroundImage: `url(${card.image})` }}
         >
           {/* 🔹 Overlay */}
           <div
@@ -39,9 +69,12 @@ const Accordion = () => {
             }}
           ></div>
 
-          {/* 🔹 Text */}
+          {/* 🔹 Text + Button */}
           <div className="absolute bottom-5 left-5 text-white text-lg sm:text-xl font-bold drop-shadow-lg z-10">
-            <h2>Creative Themes for Unforgettable Memories</h2>
+            <button className=" flex backdrop-blur-md text-white px-4 py-2 rounded-md text-lg font-semibold">
+              {card.buttonText}
+              <span className="text-[#C2639D] text-xl">➔</span>
+            </button>
           </div>
         </div>
       ))}

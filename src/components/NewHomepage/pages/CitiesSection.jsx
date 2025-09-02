@@ -29,7 +29,7 @@ const CitiesSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10 p-5">
+        <h2 className="text-2xl md:text-3xl font-bold  p-5">
           Cities We Serve
         </h2>
 
@@ -55,7 +55,7 @@ const CitiesSection = () => {
         </div>
 
         {/* Footer Text */}
-        <p className="mt-10 text-gray-200 font-medium">
+        <p className="pt-7 text-gray-200 font-medium">
           We Are Coming To Your Place Soon
         </p>
       </div>

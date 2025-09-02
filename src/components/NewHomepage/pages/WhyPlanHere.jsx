@@ -53,16 +53,16 @@ const WhyPlanHere = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Content */}
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold pb-10">
             Why Plan IT Here ?
           </h2>
-          <p className="text-gray-600 mb-8">
+          {/* <p className="text-gray-600 mb-8">
             Lorem ipsum dolor sit amet consectetur. Feugiat dictumst erat turpis
             libero diam lectus urna pulvinar metus. Arcu euismod semper sed
             donec morbi integer. Dui massa porttitor arcu amet nisl mauris
             tincidunt nisi at. Vestibulum sit vel amet sed aliquet consectetur
             in.
-          </p>
+          </p> */}
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

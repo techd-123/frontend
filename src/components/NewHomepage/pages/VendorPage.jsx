@@ -46,7 +46,7 @@ const vendors = [
 const VendorPage = () => {
   return (
     <section className="py-12 px-4 md:px-8 lg:px-16">
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
+      <h2 className="text-[20px] mb-5 md:text-3xl font-bold text-center p-8">
         Build Your Vendor Team
       </h2>
 
@@ -70,7 +70,7 @@ const VendorPage = () => {
 
             {/* Label */}
             <span className="absolute inset-0 flex items-center justify-center">
-              <span className="bg-black bg-opacity-70 text-white px-4 py-2 rounded-md text-lg font-semibold">
+              <span className=" backdrop-blur-md text-white px-4 py-2 rounded-md text-lg font-semibold">
                 {vendor.name}
               </span>
             </span>
@@ -79,12 +79,13 @@ const VendorPage = () => {
       </div>
 
       {/* Explore more */}
-      <div className="text-center mt-8">
+      <div className="text-center pt-12">
         <a
           href="/vendors"
-          className="text-gray-700 hover:text-pink-600 font-medium"
+          className="inline-flex items-center gap-3 border-2 border-[#C2639D] text-gray-700 rounded-3xl hover:text-pink-600 font-medium px-6 py-3"
         >
-          Explore more
+          <span>Explore more</span>
+          <span className="text-[#C2639D] text-xl">➔</span>
         </a>
       </div>
     </section>

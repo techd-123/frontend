@@ -22,31 +22,28 @@ const HomePage = () => {
       <section className="bg-gradient-to-r from-[#261539F5] via-[#511F5A] to-[#C2639D] text-white w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 w-full min-h-screen">
           {/* Left Content */}
-          <div className=" flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-20 py-16 sm:py-20 space-y-6 sm:space-y-8 gap-5">
-            <h1 className="text-[43px] sm:text-7xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <div className=" flex flex-col justify-center  px-6 sm:px-8 md:px-12 lg:px-20 py-16 sm:py-20 space-y-6 sm:space-y-8 gap-5">
+            <h1 className="text-[30px] pt-7 sm:text-7xl md:text-5xl lg:text-6xl font-bold leading-tight">
               One platform. Many Events <br /> Endless Possibilities.
             </h1>
 
-            <p className="text-base sm:text-lg text-purple-200">
-              Find top-rated vendors for every vibe
-            </p>
-
             {/* Search Box */}
-            <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 sm:p-6 max-w-2xl border-2 border-[#C2639D]">
+            <div></div>
+            <div className=" flex  flex-col  gap-8  backdrop-blur-md rounded-lg p-4 sm:p-6 max-w-2xl border-2 border-[#C2639D] ">
               <p className="text-xs sm:text-sm text-purple-200 mb-3 sm:mb-4">
                 Find top-rated vendors for every vibe
               </p>
               <div className="flex flex-col md:flex-row items-stretch gap-3">
                 {/* Vendors Dropdown */}
                 <div className="relative w-full md:w-40">
-                  <button className="w-full flex items-center justify-between px-4 py-3 bg-purple-900 rounded-md text-white focus:outline-none">
+                  <button className="w-full flex items-center justify-between px-4 py-3 border-2 rounded-2xl text-white focus:outline-none">
                     Vendors <FiChevronDown />
                   </button>
                 </div>
 
                 {/* Locations Dropdown */}
                 <div className="relative w-full md:w-40">
-                  <button className="w-full flex items-center justify-between px-4 py-3 bg-purple-900 rounded-md text-white focus:outline-none">
+                  <button className="w-full flex items-center justify-between px-4 py-3 border-2 rounded-2xl text-white focus:outline-none">
                     Locations <FiChevronDown />
                   </button>
                 </div>
@@ -54,7 +51,7 @@ const HomePage = () => {
                 {/* Search Button */}
                 <button
                   onClick={handleSearch}
-                  className="flex items-center justify-center px-6 py-3 bg-pink-500 hover:bg-pink-600 rounded-md text-white font-semibold transition"
+                  className="flex items-center  gap-3 justify-center px-6 py-3 bg-[#C2639D] hover:bg-pink-600 rounded-md text-white font-semibold transition"
                 >
                   <FiSearch className="mr-2" /> Search
                 </button>
@@ -67,7 +64,7 @@ const HomePage = () => {
             <img
               src="/images/heroimage.svg"
               alt="Event Showcase"
-              className="w-full max-w-md lg:max-w-full object-contain"
+              className="hidden lg:block w-full max-w-md lg:max-w-full object-contain"
             />
           </div>
         </div>
