@@ -16,6 +16,7 @@ import CategoryFilter from "./components/Category/CategoryFilter";
 import VendorDetail from "./components/VendorPages/VendorDetail";
 import HomePage from "./components/NewHomepage/Home/HomePage";
 import FilterPage from "./components/NewHomepage/Home/FilterPage";
+import WhyPlanHere from "./components/NewHomepage/pages/WhyPlanHere";
 function App() {
   return (
     <div className="app">
@@ -27,6 +28,7 @@ function App() {
         <Route path="/venues" element={<CategoryFilter />} />
         <Route path="/vendor/:vendorName" element={<VendorDetail />} />
         <Route path="/filter" element={<FilterPage />} />
+        <Route path="/whyplan" element={<WhyPlanHere />} />
       </Routes>
       {/* <MainComponent />
       <SearchBanner />
