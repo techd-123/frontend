@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import VenueCard from "./VenueCard";
 import FilterPanel from "./FilterPanel";
+import VendorFilterPanel from "./VendorFilterPanel";
 
 const VenueCards = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -57,11 +58,15 @@ const VenueCards = () => {
 
   return (
     <div className="flex-1 p-4 md:p-6 lg:p-8 overflow-y-auto flex">
-      {/* Filter Sidebar */}
-      <FilterPanel isOpen={showFilter} onClose={() => setShowFilter(false)} />
+      {/* Conditionally Render Filter Panels */}
+      {activeTab === "venues" ? (
+        <FilterPanel isOpen={showFilter} onClose={() => setShowFilter(false)} />
+      ) : (
+        <VendorFilterPanel isOpen={showFilter} onClose={() => setShowFilter(false)} />
+      )}
 
       <div className="flex-1">
-        {/* Header Tabs */}
+        {/* Tabs */}
         <div className="mb-5 flex items-center gap-5 pb-4">
           <span
             className={`cursor-pointer pb-1 ${
@@ -73,7 +78,6 @@ const VenueCards = () => {
           >
             Venues
           </span>
-
           <span
             className={`cursor-pointer pb-1 ${
               activeTab === "vendors"
@@ -85,7 +89,7 @@ const VenueCards = () => {
             Vendors
           </span>
 
-          {/* Filter Button (only for mobile) */}
+          {/* Filter Button for Mobile */}
           <button
             className="ml-auto bg-purple-600 text-white px-3 py-1 rounded-md hover:bg-purple-700 transition sm:hidden"
             onClick={() => setShowFilter(true)}
@@ -94,7 +98,7 @@ const VenueCards = () => {
           </button>
         </div>
 
-        {/* Grid */}
+        {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
           {dataToShow.map((item, index) => (
             <VenueCard key={index} {...item} />
