@@ -82,7 +82,7 @@ const VendorPage = () => {
       <div className="text-center pt-12">
         <a
           href="/vendors"
-          className="inline-flex items-center gap-3 border-2 border-[#C2639D] text-gray-700 rounded-3xl hover:text-pink-600 font-medium px-6 py-3"
+          className="p-3 inline-flex items-center gap-3 border-2 border-[#C2639D] text-gray-700 rounded-3xl hover:text-pink-600 font-medium "
         >
           <span>Explore more</span>
           <span className="text-[#C2639D] text-xl">➔</span>

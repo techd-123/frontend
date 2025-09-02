@@ -8,6 +8,7 @@ import Accordion from "../pages/Accordion";
 import ConfusedSection from "../pages/ConfusedSection";
 import Footer from "../common/footer";
 import { useNavigate } from "react-router-dom";
+import Slider from "../../Slider";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -71,10 +72,11 @@ const HomePage = () => {
       </section>
 
       <VendorPage />
-      <WhyPlanHere />
+      <WhyPlanHere className="hidden md:block" />
       <CitiesSection />
       <Accordion />
       <ConfusedSection />
+      {/* <Slider/> */}
       <Footer />
     </>
   );

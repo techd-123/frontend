@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import VenueCard from "./VenueCard";
+import FilterPanel from "./FilterPanel";
 
 const VenueCards = () => {
+  const [showFilter, setShowFilter] = useState(false);
   // Sample data
   const venues = [
     {
@@ -74,30 +76,35 @@ const VenueCards = () => {
   ];
 
   return (
-    <div className="flex-1 p-4 md:p-6 lg:p-8 overflow-y-auto">
-      {/* Header */}
-      <div className="mb-5">
-        {/* Tabs */}
-        <div className="flex gap-5 text-lg md:text-xl font-semibold">
+    <div className="flex-1 p-4 md:p-6 lg:p-8 overflow-y-auto flex">
+      {/* Filter Sidebar */}
+      <FilterPanel isOpen={showFilter} onClose={() => setShowFilter(false)} />
+
+      <div className="flex-1">
+        {/* Header */}
+        <div className="mb-5 flex items-center gap-5 pb-4">
           <span className="cursor-pointer pb-1 border-b-2 border-black">
             Venues
           </span>
           <span className="cursor-pointer pb-1 hover:border-b-2 hover:border-gray-500">
             Vendors
           </span>
+
+          {/* Filter Button */}
+          <button
+            className="ml-auto bg-purple-600 text-white px-3 py-1 rounded-md hover:bg-purple-700 transition sm:hidden"
+            onClick={() => setShowFilter(true)}
+          >
+            Filter
+          </button>
         </div>
 
-        {/* Subtext */}
-        <div className="mt-3 text-sm text-gray-700 bg-[#eaf8f6] px-4 py-2 rounded-md w-fit">
-          Find your kind of place for the celebration to go down.
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+          {venues.map((venue, index) => (
+            <VenueCard key={index} {...venue} />
+          ))}
         </div>
-      </div>
-
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {venues.map((venue, index) => (
-          <VenueCard key={index} {...venue} />
-        ))}
       </div>
     </div>
   );

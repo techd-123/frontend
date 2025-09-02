@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false); // mobile menu toggle
@@ -9,7 +10,7 @@ const Header = () => {
   const toggleDropdown = (menu) => {
     setOpenDropdown(openDropdown === menu ? null : menu);
   };
-
+  const navigate = useNavigate();
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
       <div className="flex items-center justify-between px-6 py-4">
@@ -21,7 +22,6 @@ const Header = () => {
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center space-x-8 text-gray-700 font-medium gap-4">
           <li className="hover:text-purple-600 cursor-pointer">Home</li>
-
           {/* Events Dropdown */}
           <li className="relative group cursor-pointer">
             <div className="flex items-center space-x-1 hover:text-purple-600">
@@ -34,7 +34,6 @@ const Header = () => {
               <li className="px-4 py-2 hover:bg-purple-100">Corporate</li>
             </ul>
           </li>
-
           {/* Vendors Dropdown */}
           <li className="relative group cursor-pointer">
             <div className="flex items-center space-x-1 hover:text-purple-600">
@@ -47,8 +46,12 @@ const Header = () => {
               <li className="px-4 py-2 hover:bg-purple-100">Photographers</li>
             </ul>
           </li>
-
-          <li className="hover:text-purple-600 cursor-pointer">Services</li>
+          <li
+            className="hover:text-purple-600 cursor-pointer"
+            onClick={() => navigate("/whyplan")}
+          >
+            Services
+          </li>
           <li className="hover:text-purple-600 cursor-pointer">About</li>
           <li className="hover:text-purple-600 cursor-pointer">Contact</li>
         </ul>
