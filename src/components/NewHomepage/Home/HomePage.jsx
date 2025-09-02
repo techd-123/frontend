@@ -6,9 +6,9 @@ import WhyPlanHere from "../pages/WhyPlanHere";
 import CitiesSection from "../pages/CitiesSection";
 import Accordion from "../pages/Accordion";
 import ConfusedSection from "../pages/ConfusedSection";
-import Footer from '../common/Footer';
+import Footer from "../common/Footer";
 import { useNavigate } from "react-router-dom";
-import Slider from "../../Slider";
+import Slider from "../pages/Slider";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -74,8 +74,16 @@ const HomePage = () => {
       <VendorPage />
       {/* <WhyPlanHere className="hidden md:block" /> */}
       <CitiesSection />
-      <Accordion className="hidden md:block" />
-      <Slider className="block sm:hidden" />
+
+      {/* Accordion for desktop only */}
+      <div className="hidden md:block">
+        <Accordion />
+      </div>
+
+      {/* Slider for mobile only */}
+      <div className="block md:hidden">
+        <Slider />
+      </div>
 
       <ConfusedSection />
       <Footer />
