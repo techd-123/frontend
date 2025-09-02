@@ -16,6 +16,8 @@ const Header = () => {
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo */}
         {/* by aswin */}
+                {/* by vishnu */}
+
         <div className="text-2xl font-bold font-serif">
           <img src="/images/logo.svg" alt="" />
         </div>
