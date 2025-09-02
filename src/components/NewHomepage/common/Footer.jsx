@@ -10,6 +10,8 @@ const Footer = () => {
     <footer className="bg-[#25113D] text-white py-12 px-6 md:px-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start pb-8">
         {/* Left Section */}
+                {/* Left Secnkndcnjdcmcbhjdcndbhction */}
+
         <div className="flex flex-col gap-5">
           <img
             src="/images/logo.svg"
