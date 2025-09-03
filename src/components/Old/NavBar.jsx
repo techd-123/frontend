@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import Group from "../assets/images/Group.png";
-import RegisterPage from "../components/authPage/RegisterPage";
-import LoginPage from "../components/authPage/LoginPage";
+import RegisterPage from "../authPage/RegisterPage";
+import LoginPage from "../authPage/LoginPage";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {

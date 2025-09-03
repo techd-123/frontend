@@ -117,8 +117,8 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden bg-white shadow-md overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-screen" : "max-h-0"
+        className={`lg:hidden fixed top-0 left-0 h-full w-1/2 bg-white shadow-md transform transition-transform duration-500 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <ul className="flex flex-col space-y-4 p-6 text-gray-700 font-medium text-left ">

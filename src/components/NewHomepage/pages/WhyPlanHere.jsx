@@ -7,6 +7,7 @@ import {
   FaGlobe,
   FaComments,
 } from "react-icons/fa";
+import Header from "../common/Header";
 
 const WhyPlanHere = () => {
   const features = [
@@ -49,6 +50,8 @@ const WhyPlanHere = () => {
   ];
 
   return (
+    <>
+    <Header/>
     <section className="bg-[#F0F0FC] py-12 px-6 md:px-12 lg:px-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Content */}
@@ -96,6 +99,7 @@ const WhyPlanHere = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
