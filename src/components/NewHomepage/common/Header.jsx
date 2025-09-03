@@ -16,7 +16,7 @@ const Header = () => {
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo */}
         {/* by aswin */}
-                {/* by vishnu */}
+        {/* by vishnu */}
 
         <div className="text-2xl font-bold font-serif">
           <img src="/images/logo.svg" alt="" />
@@ -24,7 +24,12 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center space-x-8 text-gray-700 font-medium gap-4">
-          <li className="hover:text-purple-600 cursor-pointer">Home</li>
+          <li
+            className="hover:text-purple-600 cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            Home
+          </li>
           {/* Events Dropdown */}
           <li className="relative group cursor-pointer">
             <div className="flex items-center space-x-1 hover:text-purple-600">
@@ -32,9 +37,24 @@ const Header = () => {
               <FiChevronDown />
             </div>
             <ul className="absolute left-0 hidden group-hover:block bg-white shadow-md mt-2 rounded-md w-44">
-              <li className="px-4 py-2 hover:bg-purple-100">Weddings</li>
-              <li className="px-4 py-2 hover:bg-purple-100">Birthdays</li>
-              <li className="px-4 py-2 hover:bg-purple-100">Corporate</li>
+              <li
+                className="px-4 py-2 hover:bg-purple-100"
+                onClick={() => navigate("/filter")}
+              >
+                Weddings
+              </li>
+              <li
+                className="px-4 py-2 hover:bg-purple-100"
+                onClick={() => navigate("/filter")}
+              >
+                Birthdays
+              </li>
+              <li
+                className="px-4 py-2 hover:bg-purple-100"
+                onClick={() => navigate("/filter")}
+              >
+                Corporate
+              </li>
             </ul>
           </li>
           {/* Vendors Dropdown */}
@@ -44,9 +64,24 @@ const Header = () => {
               <FiChevronDown />
             </div>
             <ul className="absolute left-0 hidden group-hover:block bg-white shadow-md mt-2 rounded-md w-44">
-              <li className="px-4 py-2 hover:bg-purple-100">Caterers</li>
-              <li className="px-4 py-2 hover:bg-purple-100">Decorators</li>
-              <li className="px-4 py-2 hover:bg-purple-100">Photographers</li>
+              <li
+                className="px-4 py-2 hover:bg-purple-100"
+                onClick={() => navigate("/filter")}
+              >
+                Caterers
+              </li>
+              <li
+                className="px-4 py-2 hover:bg-purple-100"
+                onClick={() => navigate("/filter")}
+              >
+                Decorators
+              </li>
+              <li
+                className="px-4 py-2 hover:bg-purple-100"
+                onClick={() => navigate("/filter")}
+              >
+                Photographers
+              </li>
             </ul>
           </li>
           <li
@@ -82,8 +117,8 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden bg-white shadow-md overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-screen" : "max-h-0"
+        className={`lg:hidden fixed top-0 left-0 h-full w-1/2 bg-white shadow-md transform transition-transform duration-500 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <ul className="flex flex-col space-y-4 p-6 text-gray-700 font-medium text-left ">

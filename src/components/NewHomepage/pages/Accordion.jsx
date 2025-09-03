@@ -1,38 +1,33 @@
 import React, { useState } from "react";
 
-import img1 from "/images/nested/slider1.jpg";
-import img2 from "/img/kcouples.jpg";
-import img3 from "/images/nested/slider3.jpg";
-import img4 from "/images/nested/slider4.jpg";
-import img5 from "/img/kathkali.jpg";
-
-// 🔹 Array of card data (image + text + button)
+// 🔹 Array of card data (public folder paths instead of imports)
 const cards = [
   {
-    image: img1,
-    buttonText: "Wedding Celebrations",
+    title:"Creative Themes for Unforgettable Memories",
+    desc:"Discover expert advice and creative ideas to help you plan unforgettable Events",
+    image: "/images/nested/slider1.jpg",
+    buttonText: "See More",
   },
   {
-    image: img2,
-    title: "Kerala  Weddings",
-    buttonText: "Kerala  Weddings",
+    image: "/img/kcouples.jpg",
+    buttonText: "Kerala Weddings",
   },
   {
-    image: img3,
+    image: "/images/nested/slider3.jpg",
     buttonText: "Birthday Parties",
   },
   {
-    image: img4,
+    image: "/images/nested/slider4.jpg",
     buttonText: "Baptism",
   },
   {
-    image: img5,
+    image: "/img/kathkali.jpg",
     buttonText: "Cultural Gatherings",
   },
 ];
 
 const Accordion = () => {
-  const [activeIndex, setActiveIndex] = useState(0); // 🔹 First card enlarged by default
+  const [activeIndex, setActiveIndex] = useState(0); // First card enlarged by default
 
   return (
     <div
@@ -51,12 +46,12 @@ const Accordion = () => {
             relative bg-center bg-cover cursor-pointer transition-all duration-500
             ${
               activeIndex === index
-                ? "w-[615px]"
+                ? "lg:w-[615px]" // expand when hovered
                 : index === 0
-                ? "w-[615px]" /* First one always bigger */
-                : "w-[300px]"
+                ? "lg:w-[615px]" // first one big by default
+                : "lg:w-[300px]"
             }
-            h-[500px]
+            h-[400px] sm:h-[450px] lg:h-[500px] w-full
           `}
           style={{ backgroundImage: `url(${card.image})` }}
         >
@@ -70,10 +65,21 @@ const Accordion = () => {
           ></div>
 
           {/* 🔹 Text + Button */}
+
           <div className="absolute bottom-5 left-5 text-white text-lg sm:text-xl font-bold drop-shadow-lg z-10">
-            <button className=" flex backdrop-blur-md text-white px-4 py-2 rounded-md text-lg font-semibold">
+            <div className="flex flex-col gap-2">
+
+               <h2>
+              {card.title}
+            </h2>
+               <p className="text-[12px] text-gray-200">
+              {card.desc}
+            </p>
+            </div>
+           
+            <button className="flex backdrop-blur-md text-white px-4 py-2 rounded-md text-lg font-semibold">
               {card.buttonText}
-              <span className="text-[#C2639D] text-xl">➔</span>
+              <span className="text-[#C2639D] text-xl ml-2">➔</span>
             </button>
           </div>
         </div>

@@ -1,9 +1,10 @@
 import React from "react";
+import { FiChevronDown, FiSearch } from "react-icons/fi";
 
 const HeroSearch = () => {
   return (
     <section
-      className="relative w-full h-[70vh] bg-cover bg-center flex items-center justify-start px-6 sm:px-12"
+      className="p-5 relative w-full min-h-[70vh] bg-cover bg-center flex items-center justify-center sm:justify-start px-4 sm:px-12 pt-24"
       style={{
         backgroundImage: "url('/img/bgimages.jpg')",
       }}
@@ -12,16 +13,21 @@ const HeroSearch = () => {
       <div className="absolute inset-0 bg-[url('/images/nested/overlay.svg')] bg-cover bg-center opacity-70"></div>
 
       {/* Search Box */}
-      <div className="relative z-10 max-w-2xl w-full sm:w-[500px] bg-gradient-to-r from-purple-900/90 to-pink-800/90 rounded-lg shadow-lg p-6 text-white">
+      <div
+        className=" relative z-10 w-[90%] sm:w-[500px] md:w-[600px] 
+        bg-gradient-to-r from-purple-900/90 to-pink-800/90 
+        rounded-lg shadow-lg p-8 sm:p-6 text-white 
+        flex flex-col items-center sm:items-start"
+      >
         {/* Heading */}
-        <h2 className="text-lg sm:text-xl md:text-2xl font-medium mb-4">
+        <h2 className="p-4 text-center sm:text-left text-sm sm:text-lg md:text-2xl font-medium mb-4 leading-snug">
           Find top-rated vendors for every vibe
         </h2>
 
         {/* Form */}
-        <form className="flex flex-col sm:flex-row gap-3 ">
+        <form className="flex flex-col sm:flex-row gap-3 w-full">
           {/* Vendors Dropdown */}
-          <select className="w-full sm:w-auto px-4 py-2 rounded-md border border-gray-400 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-pink-400">
+          <select className="w-full sm:flex-1 px-4 py-2 rounded-md border border-gray-400 bg-transparent text-white text-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
             <option className="text-black">Vendors</option>
             <option className="text-black">Photographers</option>
             <option className="text-black">Caterers</option>
@@ -29,7 +35,7 @@ const HeroSearch = () => {
           </select>
 
           {/* Locations Dropdown */}
-          <select className="w-full sm:w-auto px-4 py-2 rounded-md border border-gray-400 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-pink-400">
+          <select className="w-full sm:flex-1 px-4 py-2 rounded-md border border-gray-400 bg-transparent text-white text-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
             <option className="text-black">Locations</option>
             <option className="text-black">New York</option>
             <option className="text-black">Los Angeles</option>
@@ -39,9 +45,9 @@ const HeroSearch = () => {
           {/* Search Button */}
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-medium px-6 py-2 rounded-md transition"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-medium px-6 py-2 rounded-md transition text-sm sm:text-base"
           >
-            🔍 Search
+            <FiSearch className="mr-2" /> Search
           </button>
         </form>
       </div>
