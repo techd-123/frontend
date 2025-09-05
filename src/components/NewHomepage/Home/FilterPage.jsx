@@ -12,8 +12,8 @@ const FilterPage = () => {
       <Header />
       <HeroSearch />
       <FilterFlex />
-      <Accordion />
-      <ConfusedSection />
+      {/* <Accordion />
+      <ConfusedSection /> */}
       <Footer />
     </>
   );

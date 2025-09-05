@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ import
 
-// 🔹 Array of card data (public folder paths instead of imports)
 const cards = [
   {
-    title:"Creative Themes for Unforgettable Memories",
-    desc:"Discover expert advice and creative ideas to help you plan unforgettable Events",
+    title: "Creative Themes for Unforgettable Memories",
+    desc: "Discover expert advice and creative ideas to help you plan unforgettable Events",
     image: "/images/nested/slider1.jpg",
     buttonText: "See More",
   },
@@ -27,7 +27,8 @@ const cards = [
 ];
 
 const Accordion = () => {
-  const [activeIndex, setActiveIndex] = useState(0); // First card enlarged by default
+  const [activeIndex, setActiveIndex] = useState(0);
+  const navigate = useNavigate(); // ✅ hook
 
   return (
     <div
@@ -46,16 +47,15 @@ const Accordion = () => {
             relative bg-center bg-cover cursor-pointer transition-all duration-500
             ${
               activeIndex === index
-                ? "lg:w-[615px]" // expand when hovered
+                ? "lg:w-[615px]"
                 : index === 0
-                ? "lg:w-[615px]" // first one big by default
+                ? "lg:w-[615px]"
                 : "lg:w-[300px]"
             }
             h-[400px] sm:h-[450px] lg:h-[500px] w-full
           `}
           style={{ backgroundImage: `url(${card.image})` }}
         >
-          {/* 🔹 Overlay */}
           <div
             className="absolute inset-0 transition duration-300"
             style={{
@@ -64,20 +64,17 @@ const Accordion = () => {
             }}
           ></div>
 
-          {/* 🔹 Text + Button */}
-
           <div className="absolute bottom-5 left-5 text-white text-lg sm:text-xl font-bold drop-shadow-lg z-10">
             <div className="flex flex-col gap-2">
-
-               <h2>
-              {card.title}
-            </h2>
-               <p className="text-[12px] text-gray-200">
-              {card.desc}
-            </p>
+              <h2>{card.title}</h2>
+              <p className="text-[12px] text-gray-200">{card.desc}</p>
             </div>
-           
-            <button className="flex backdrop-blur-md text-white px-4 py-2 rounded-md text-lg font-semibold">
+
+            {/* ✅ Button takes you to /filter always */}
+            <button
+              onClick={() => navigate("/filter")}
+              className="flex backdrop-blur-md text-white px-4 py-2 rounded-md text-lg font-semibold"
+            >
               {card.buttonText}
               <span className="text-[#C2639D] text-xl ml-2">➔</span>
             </button>
