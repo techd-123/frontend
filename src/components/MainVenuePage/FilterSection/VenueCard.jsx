@@ -1,7 +1,13 @@
 import React from "react";
 import { FiMapPin, FiUsers } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const VenueCard = ({ title, location, price, capacity, image }) => {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/product"); // 👉 change this path as needed (e.g., `/product/${id}`)
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
       <img src={image} alt={title} className="w-full h-40 object-cover" />
@@ -12,7 +18,10 @@ const VenueCard = ({ title, location, price, capacity, image }) => {
           <span>From {price}</span>
           <span>{capacity}</span>
         </div>
-        <button className="mt-4 w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600">
+        <button
+          onClick={handleNavigate}
+          className="mt-4 w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600"
+        >
           Request Pricing
         </button>
       </div>
