@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const vendors = [
   {
@@ -53,28 +54,23 @@ const VendorPage = () => {
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {vendors.map((vendor, idx) => (
-          <a
+          <Link
             key={idx}
-            href={vendor.link}
+            to={`/filter?category=${vendor.name.toLowerCase()}`}
             className="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
           >
-            {/* Image */}
             <img
               src={vendor.image}
               alt={vendor.name}
               className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
             />
-
-            {/* Overlay */}
-            <div className="absolute inset-0  bg-opacity-40 group-hover:bg-opacity-50 transition" />
-
-            {/* Label */}
+            <div className="absolute inset-0 bg-opacity-40 group-hover:bg-opacity-50 transition" />
             <span className="absolute inset-0 flex items-center justify-center">
-              <span className=" backdrop-blur-md text-white px-4 py-2 rounded-md text-lg font-semibold">
+              <span className="backdrop-blur-md text-white px-4 py-2 rounded-md text-lg font-semibold">
                 {vendor.name}
               </span>
             </span>
-          </a>
+          </Link>
         ))}
       </div>
 
