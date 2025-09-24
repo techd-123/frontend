@@ -23,11 +23,7 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/mobile" element={<MobileForm />} />
-        <Route path="/otp" element={<OTPPage />} />
-        <Route path="/services" element={<AboutPage />} />
-        <Route path="/venues" element={<CategoryFilter />} />
-        <Route path="/vendor/:vendorName" element={<VendorDetail />} />*/}
+    
         <Route path="/filter" element={<FilterPage />} />
         <Route path="/whyplan" element={<WhyPlanHere />} />
         <Route path="/product" element={<SingleProduct />} />

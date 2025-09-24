@@ -5,42 +5,42 @@ const vendors = [
   {
     name: "Venues",
     image: "/images/first.svg",
-    link: "/filter",
+    categoryKey: "venues",
   },
   {
     name: "Photographers",
     image: "/images/Rectangle 6469.svg",
-    link: "/filter",
+    categoryKey: "photography",
   },
   {
     name: "Planners",
     image: "/images/Rectangle 6470.svg",
-    link: "/filter",
+    categoryKey: "planners",
   },
   {
     name: "Caterers",
     image: "/images/Rectangle 6471.svg",
-    link: "/filter",
+    categoryKey: "catering",
   },
   {
     name: "Car Rentals",
     image: "/images/Rectangle 6472.svg",
-    link: "/filter",
+    categoryKey: "cars",
   },
   {
     name: "Makeup Artist",
     image: "/images/Rectangle 6473.svg",
-    link: "/filter",
+    categoryKey: "makeup",
   },
   {
     name: "Entertainments",
     image: "/images/Rectangle 6474.svg",
-    link: "/filter",
+    categoryKey: "entertainments",
   },
   {
     name: "Tailorings",
     image: "/images/Rectangle 6475.svg",
-    link: "/filter",
+    categoryKey: "tailorings",
   },
 ];
 
@@ -56,7 +56,7 @@ const VendorPage = () => {
         {vendors.map((vendor, idx) => (
           <Link
             key={idx}
-            to={`/filter?category=${vendor.name.toLowerCase()}`}
+            to={`/filter?category=${vendor.categoryKey}`}
             className="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
           >
             <img
