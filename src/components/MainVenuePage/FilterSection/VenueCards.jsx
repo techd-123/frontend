@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import VenueCard from "./VenueCard";
 import FilterPanel from "./FilterPanel";
 import VendorFilterPanel from "./VendorFilterPanel";
+import { useSearchParams } from "react-router-dom";
 
 const VenueCards = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [activeTab, setActiveTab] = useState("venues");
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
-  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category"); // e.g. "photography"
 
   // Venues
   const venues = [
@@ -38,7 +37,7 @@ const VenueCards = () => {
     },
   ];
 
-  // Vendors
+  // Vendors grouped by category
   const vendors = {
     photography: [
       {
@@ -80,20 +79,49 @@ const VenueCards = () => {
           "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg",
       },
     ],
+    planners: [
+      {
+        title: "Elite Planners",
+        location: "Trivandrum",
+        price: "₹50,000 onwards",
+        capacity: "Corporate, Weddings",
+        image:
+          "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+      },
+    ],
+    entertainments: [
+      {
+        title: "Stage Beats",
+        location: "Kochi",
+        price: "₹15,000 per event",
+        capacity: "DJ, Dance, Music",
+        image:
+          "https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg",
+      },
+    ],
+    tailorings: [
+      {
+        title: "Fashion Tailors",
+        location: "Trivandrum",
+        price: "₹2,000 per outfit",
+        capacity: "Suits, Sarees, Custom Wear",
+        image: "https://images.pexels.com/photos/44805/pexels-photo-44805.jpeg",
+      },
+    ],
   };
 
-  // Read category from URL
+  // ✅ Switch to vendors tab if category is passed
   useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    const category = queryParams.get("category");
-    if (category && vendors[category]) {
-      setActiveTab("vendors"); // switch to Vendors tab automatically
-      setSelectedCategory(category); // show only this category
-    } else {
-      setActiveTab("venues");
-      setSelectedCategory(null);
+    if (category && category !== "venues") {
+      setActiveTab("vendors");
     }
-  }, [location.search]);
+  }, [category]);
+
+  // ✅ Filter vendors by category
+  const filteredVendors =
+    category && category !== "venues"
+      ? vendors[category] || []
+      : Object.values(vendors).flat();
 
   return (
     <div className="flex-1 p-4 md:p-6 lg:p-8 overflow-y-auto flex">
@@ -101,7 +129,10 @@ const VenueCards = () => {
       {activeTab === "venues" ? (
         <FilterPanel isOpen={showFilter} onClose={() => setShowFilter(false)} />
       ) : (
-        <VendorFilterPanel isOpen={showFilter} onClose={() => setShowFilter(false)} />
+        <VendorFilterPanel
+          isOpen={showFilter}
+          onClose={() => setShowFilter(false)}
+        />
       )}
 
       <div className="flex-1">
@@ -113,10 +144,7 @@ const VenueCards = () => {
                 ? "border-b-2 border-black"
                 : "hover:border-b-2 hover:border-gray-500"
             }`}
-            onClick={() => {
-              setActiveTab("venues");
-              setSelectedCategory(null);
-            }}
+            onClick={() => setActiveTab("venues")}
           >
             Venues
           </span>
@@ -126,10 +154,7 @@ const VenueCards = () => {
                 ? "border-b-2 border-black"
                 : "hover:border-b-2 hover:border-gray-500"
             }`}
-            onClick={() => {
-              setActiveTab("vendors");
-              setSelectedCategory(null);
-            }}
+            onClick={() => setActiveTab("vendors")}
           >
             Vendors
           </span>
@@ -152,15 +177,9 @@ const VenueCards = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-            {selectedCategory
-              ? vendors[selectedCategory].map((item, index) => (
-                  <VenueCard key={`${selectedCategory}-${index}`} {...item} />
-                ))
-              : Object.keys(vendors).map((category) =>
-                  vendors[category].map((item, index) => (
-                    <VenueCard key={`${category}-${index}`} {...item} />
-                  ))
-                )}
+            {filteredVendors.map((item, index) => (
+              <VenueCard key={index} {...item} />
+            ))}
           </div>
         )}
       </div>
@@ -169,3 +188,4 @@ const VenueCards = () => {
 };
 
 export default VenueCards;
+  
