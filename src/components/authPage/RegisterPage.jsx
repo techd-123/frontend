@@ -1,125 +1,205 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import { registerUser } from "../../Api/Axios"; // import your API function
 
-const Container = styled.div`
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #ffe2e2, #fad4c0);
-  padding: 20px;
-`;
+export default function RegisterForm() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [touched, setTouched] = useState({});
+  const [serverError, setServerError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-const FormWrapper = styled.div`
-  background-color: #fff;
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  max-width: 420px;
-  width: 100%;
-  position: relative;
-`;
+  const validate = () => {
+    const errors = {};
+    if (!username) errors.username = "Username is required.";
+    else if (username.length < 3)
+      errors.username = "Username must be at least 3 characters.";
 
-const Title = styled.h2`
-  text-align: center;
-  color: #1f1f4e;
-  margin-bottom: 30px;
-`;
+    if (!email) errors.email = "Email is required.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      errors.email = "Enter a valid email.";
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
+    if (!password) errors.password = "Password is required.";
+    else if (password.length < 6)
+      errors.password = "Password must be at least 6 characters.";
 
-const Label = styled.label`
-  margin-bottom: 6px;
-  font-size: 14px;
-  color: #333;
-`;
+    return errors;
+  };
 
-const Input = styled.input`
-  padding: 12px 14px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  transition: border-color 0.3s ease;
+  const errors = validate();
+  const isValid = Object.keys(errors).length === 0;
 
-  &:focus {
-    outline: none;
-    border-color: #ff6b6b;
-  }
-`;
+  const handleBlur = (field) => {
+    setTouched((t) => ({ ...t, [field]: true }));
+  };
 
-const Button = styled.button`
-  background-color: #ff6b6b;
-  color: #fff;
-  border: none;
-  padding: 14px;
-  border-radius: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setTouched({ username: true, email: true, password: true });
+    setServerError("");
+    setSuccessMessage("");
 
-  &:hover {
-    background-color: #e45757;
-  }
-`;
+    if (!isValid) return;
 
-const Info = styled.p`
-  font-size: 14px;
-  color: #666;
-  text-align: center;
-  margin-top: 16px;
-
-  a {
-    color: #ff6b6b;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
+    setLoading(true);
+    try {
+      const data = await registerUser({ username, email, password });
+      setSuccessMessage("User registered successfully!");
+      console.log("Registered:", data);
+      // Optionally reset the form
+      setUsername("");
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      setServerError(err.detail || "Registration failed");
+    } finally {
+      setLoading(false);
     }
-  }
-`;
+  };
 
-const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-  color: #ff6b6b;
-  cursor: pointer;
-`;
-
-const RegisterPage = ({ onClose }) => {
   return (
-    <Container>
-      <FormWrapper>
-        <CloseButton onClick={onClose}>X</CloseButton>
-        <Title>Create Your Account</Title>
-        <Form>
-          <Label htmlFor="name">Full Name</Label>
-          <Input id="name" type="text" placeholder="Your full name" />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-100 p-6">
+      <main className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 sm:p-10">
+        <h1 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2">
+          Create an account
+        </h1>
+        <p className="text-sm text-gray-500 mb-6">
+          Sign up to start your journey with us
+        </p>
 
-          <Label htmlFor="email">Email Address</Label>
-          <Input id="email" type="email" placeholder="you@example.com" />
+        <form onSubmit={handleSubmit} noValidate>
+          {/* Username */}
+          <label
+            htmlFor="username"
+            className="block mb-2 text-sm font-medium text-gray-700"
+          >
+            Username
+          </label>
+          <input
+            id="username"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            onBlur={() => handleBlur("username")}
+            aria-invalid={!!errors.username}
+            aria-describedby={errors.username ? "username-error" : undefined}
+            className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-300 transition-shadow ${
+              errors.username && touched.username
+                ? "border-red-300 bg-red-50"
+                : "border-gray-200"
+            }`}
+            placeholder="Enter your username"
+          />
+          {touched.username && errors.username && (
+            <p className="mt-2 text-sm text-red-600" id="username-error">
+              {errors.username}
+            </p>
+          )}
 
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" placeholder="Enter a password" />
+          {/* Email */}
+          <div className="mt-4">
+            <label
+              htmlFor="email"
+              className="block mb-2 text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={() => handleBlur("email")}
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? "email-error" : undefined}
+              className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-300 transition-shadow ${
+                errors.email && touched.email
+                  ? "border-red-300 bg-red-50"
+                  : "border-gray-200"
+              }`}
+              placeholder="you@example.com"
+            />
+            {touched.email && errors.email && (
+              <p className="mt-2 text-sm text-red-600" id="email-error">
+                {errors.email}
+              </p>
+            )}
+          </div>
 
-          <Label htmlFor="confirmPassword">Confirm Password</Label>
-          <Input id="confirmPassword" type="password" placeholder="Re-enter your password" />
+          {/* Password */}
+          <div className="mt-4">
+            <label
+              htmlFor="password"
+              className="block mb-2 text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
+            <div className="relative">
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onBlur={() => handleBlur("password")}
+                aria-invalid={!!errors.password}
+                aria-describedby={
+                  errors.password ? "password-error" : undefined
+                }
+                className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-300 transition-shadow ${
+                  errors.password && touched.password
+                    ? "border-red-300 bg-red-50"
+                    : "border-gray-200"
+                }`}
+                placeholder="Enter your password"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((s) => !s)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-sm px-2 py-1 rounded focus:outline-none"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+            {touched.password && errors.password && (
+              <p className="mt-2 text-sm text-red-600" id="password-error">
+                {errors.password}
+              </p>
+            )}
+          </div>
 
-          <Button type="submit">Register</Button>
-        </Form>
-        <Info>
-          Already have an account? <a href="/login">Log in</a>
-        </Info>
-      </FormWrapper>
-    </Container>
+          {/* Server error / success */}
+          {serverError && (
+            <div className="mt-4 rounded-md bg-red-50 border border-red-100 p-3 text-sm text-red-700">
+              {serverError}
+            </div>
+          )}
+          {successMessage && (
+            <div className="mt-4 rounded-md bg-green-50 border border-green-100 p-3 text-sm text-green-700">
+              {successMessage}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={`mt-6 w-full py-3 rounded-lg text-white font-medium shadow-sm transition-opacity disabled:opacity-60 disabled:cursor-not-allowed ${
+              isValid ? "bg-indigo-600 hover:bg-indigo-700" : "bg-indigo-400"
+            }`}
+          >
+            {loading ? "Creating account..." : "Sign up"}
+          </button>
+        </form>
+
+        <div className="mt-6 text-center text-sm text-gray-600">
+          Already have an account?{" "}
+          <a href="#" className="text-indigo-600 hover:underline">
+            Sign in
+          </a>
+        </div>
+      </main>
+    </div>
   );
-};
-
-export default RegisterPage;
+}
