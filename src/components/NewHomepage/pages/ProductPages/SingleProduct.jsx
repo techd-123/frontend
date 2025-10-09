@@ -7,38 +7,143 @@ const reviews = [
     name: "John Doe",
     date: "2025-09-24",
     pax: 200,
-    text: "Amazing experience! The decorations and hospitality were exceptional. Highly recommended!",
+    text: "Amazing experience!",
     more: true,
   },
   {
     name: "Jane Smith",
     date: "2025-09-20",
     pax: 150,
-    text: "The venue was beautiful and well-maintained. Perfect for weddings and parties.",
+    text: "The venue was beautiful.",
     more: false,
   },
 ];
 
 const SingleProduct = () => {
   return (
-    <div className="min-h-screen flex justify-center bg-gradient-to-b from-pink-50 via-white to-pink-50 px-4 py-10">
-      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-lg p-6 sm:p-8 transition-all duration-300 hover:shadow-2xl">
-        {/* =================== Top Section =================== */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Image Gallery */}
-          <div className="lg:col-span-2 space-y-3">
-            <div className="relative overflow-hidden rounded-xl shadow-md">
-              <img
-                src="/images/nested/slider1.jpg"
-                alt="Venue"
-                className="w-full h-64 sm:h-96 object-cover hover:scale-105 transition-transform duration-500"
-              />
-              <span className="absolute top-3 left-3 bg-pink-600 text-white px-3 py-1 text-xs rounded-full shadow-md">
-                Trending
-              </span>
+    <div className="min-h-screen flex items-start justify-center bg-gray-50 px-2 sm:px-4 lg:px-6 py-6">
+      <div className="w-full max-w-6xl bg-white rounded-xl shadow-md p-3 sm:p-6 lg:p-8">
+        {/* ============== Top Section: Venue + Images + Request Pricing ============== */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left: Image slider */}
+          <div className="lg:col-span-2">
+            <div className="flex flex-col sm:flex-row gap-2">
+              {/* Main Image */}
+              <div className="w-full sm:w-2/3">
+                <img
+                  src="/images/nested/slider1.jpg"
+                  alt="Venue"
+                  className="w-full h-52 sm:h-72 lg:h-96 object-cover rounded-lg"
+                />
+              </div>
+
+              {/* Side Images */}
+              <div className="w-full sm:w-1/3 flex flex-row sm:flex-col gap-2">
+                <img
+                  src="/images/nested/slider3.jpg"
+                  alt="Venue Side"
+                  className="w-1/2 sm:w-full h-40 sm:h-48 lg:h-44 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/nested/slider4.jpg"
+                  alt="Venue Side"
+                  className="w-1/2 sm:w-full h-40 sm:h-48 lg:h-44 object-cover rounded-lg"
+                />
+              </div>
             </div>
-            <div className="flex gap-3 overflow-x-auto">
+          </div>
+
+          {/* Right: Venue Details */}
+          <div className="lg:col-span-1 bg-pink-50 rounded-lg p-4 flex flex-col justify-between">
+            <div className="flex flex-wrap gap-2 mb-4">
               {[
+                "Cocktail Venues",
+                "Banquet Halls",
+                "Party Halls",
+                "Marriage Halls",
+              ].map((tag, i) => (
+                <span
+                  key={i}
+                  className="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-xs sm:text-sm font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2 text-green-600 mb-4 text-sm sm:text-base">
+              <FaWhatsapp />
+              <span>Need Contact Number ?</span>
+            </div>
+
+            <button className="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-md shadow text-sm sm:text-base">
+              Request Pricing
+            </button>
+          </div>
+        </div>
+
+        {/* Venue Info */}
+        <div className="mt-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-center sm:text-left">
+            Ambara Suites
+          </h2>
+
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 mt-2 text-center sm:text-left">
+            <span className="flex items-center justify-center sm:justify-start bg-green-100 text-green-700 px-2 py-1 rounded-md text-xs sm:text-sm font-medium">
+              <FaStar className="mr-1" /> 4.5/5
+            </span>
+            <span className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-0">
+              134 Reviews
+            </span>
+          </div>
+
+          <p className="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed text-center sm:text-left">
+            For all your king-sized celebrations, Ambara Suites gives you a
+            magnificent and humongous party area at budget-friendly prices and
+            lets you steal all the spotlight for the day!
+            <button className="text-blue-600 font-semibold ml-2">
+              Show More
+            </button>
+          </p>
+
+          <div className="mt-4 flex items-center justify-center sm:justify-start gap-2 text-blue-600 bg-blue-50 border border-blue-300 px-3 py-2 rounded-md text-xs sm:text-sm font-medium">
+            <span>Hurry Up! This Venue Is In High Demand</span>
+          </div>
+        </div>
+
+        {/* Availability Section */}
+        <div className="mt-6">
+          <h3 className="text-base sm:text-lg font-semibold text-center sm:text-left">
+            Check live availability
+          </h3>
+          <div className="flex items-center justify-center sm:justify-start gap-2 mt-2 text-pink-600 text-xs sm:text-sm">
+            <MdCalendarToday />
+            <span>We have live availability for this venue</span>
+          </div>
+
+          <input
+            type="date"
+            className="mt-3 w-full border rounded-md p-2 text-sm focus:ring-2 focus:ring-pink-500"
+          />
+        </div>
+
+        {/* Photos + Features + Policies */}
+        <div className="mt-10 border-t pt-6 space-y-8">
+          {/* Photos */}
+          <div>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3">
+              <h3 className="text-lg sm:text-xl font-semibold text-center sm:text-left">
+                Ambara Suites Photos
+              </h3>
+              <button className="text-blue-600 text-xs sm:text-sm font-medium mt-2 sm:mt-0">
+                View all
+              </button>
+            </div>
+
+            <h4 className="text-sm font-medium mb-2">Images</h4>
+            <div className="flex gap-3 overflow-x-auto pb-2">
+              {[
+                "/images/nested/slider1.jpg",
                 "/images/nested/slider3.jpg",
                 "/images/nested/slider4.jpg",
                 "/img/kcouples.jpg",
@@ -47,108 +152,40 @@ const SingleProduct = () => {
                   key={i}
                   src={img}
                   alt={`Venue ${i}`}
-                  className="w-40 h-28 object-cover rounded-lg shadow hover:shadow-lg hover:scale-105 transition-transform duration-300"
+                  className="w-32 h-24 sm:w-40 sm:h-28 lg:w-52 lg:h-32 object-cover rounded-lg flex-shrink-0"
                 />
               ))}
             </div>
           </div>
 
-          {/* Venue Details Card */}
-          <div className="bg-pink-50 rounded-xl shadow-md p-5 flex flex-col justify-between border border-pink-100">
-            <div>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {[
-                  "Cocktail Venues",
-                  "Banquet Halls",
-                  "Party Halls",
-                  "Marriage Halls",
-                ].map((tag, i) => (
-                  <span
-                    key={i}
-                    className="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-xs font-medium"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="flex items-center gap-2 text-green-600 mb-3 text-sm">
-                <FaWhatsapp />
-                <span>Need Contact Number?</span>
-              </div>
-            </div>
-
-            <button className="mt-3 w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 rounded-lg shadow-md hover:shadow-lg transition">
-              Request Pricing
-            </button>
-          </div>
-        </div>
-
-        {/* =================== Venue Info =================== */}
-        <div className="mt-10 border-t border-gray-100 pt-6">
-          <h2 className="text-2xl font-bold text-gray-800 text-center sm:text-left">
-            Ambara Suites
-          </h2>
-          <div className="flex flex-col sm:flex-row items-center sm:gap-3 mt-2">
-            <span className="flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-md text-sm font-medium">
-              <FaStar className="mr-1" /> 4.5/5
-            </span>
-            <span className="text-gray-600 text-sm">134 Reviews</span>
-          </div>
-
-          <p className="mt-3 text-gray-600 leading-relaxed text-sm sm:text-base">
-            For all your king-sized celebrations, Ambara Suites gives you a
-            magnificent and humongous party area at budget-friendly prices and
-            lets you steal all the spotlight for the day!{" "}
-            <button className="text-pink-600 font-medium ml-1 hover:underline">
-              Show More
-            </button>
-          </p>
-
-          <div className="mt-5 bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-blue-700 text-sm font-medium flex items-center justify-center sm:justify-start gap-2">
-            <span>🎉 Hurry up! This venue is in high demand</span>
-          </div>
-        </div>
-
-        {/* =================== Availability =================== */}
-        <div className="mt-8 border-t border-gray-100 pt-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-2">
-            Check live availability
-          </h3>
-          <div className="flex items-center text-pink-600 text-sm gap-2">
-            <MdCalendarToday />
-            <span>We have live availability for this venue</span>
-          </div>
-          <input
-            type="date"
-            className="mt-3 w-full border border-pink-200 rounded-md p-2 text-sm focus:ring-2 focus:ring-pink-500 outline-none"
-          />
-        </div>
-
-        {/* =================== Features & Policies =================== */}
-        <div className="mt-10 border-t border-gray-100 pt-6 space-y-8">
           {/* Features */}
-          <section>
-            <h3 className="text-lg font-semibold mb-3 text-gray-800">
-              ✨ Features of Venue
+          <div>
+            <h3 className="text-base sm:text-lg font-semibold mb-3">
+              Features of venue
             </h3>
-            <ul className="list-disc pl-6 space-y-1 text-gray-700 text-sm">
+            <ul className="list-disc pl-5 space-y-1 text-gray-700 text-xs sm:text-sm">
               <li>Ample parking space and valet services</li>
               <li>Serves both vegetarian and non-vegetarian food</li>
-              <li>Affordable banquet hall for grand weddings and events</li>
-              <li>In-house decorators and caterers for seamless planning</li>
+              <li>
+                Affordable Banquet Hall in Thane for grand weddings and events
+              </li>
+              <li>In-house decorators and caterers take care of event needs</li>
             </ul>
-          </section>
+          </div>
 
-          {/* Policies */}
-          <section>
-            <h3 className="text-lg font-semibold mb-3 text-gray-800">
-              🏛 Venue Policies
+          {/* Venue Policies */}
+          <div>
+            <h3 className="text-base sm:text-lg font-semibold mb-3">
+              Venue policies
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-gray-700 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs sm:text-sm text-gray-700">
               <div>
                 <h4 className="font-semibold">Timings & Slots</h4>
                 <p>Morning - 7:30 AM - 3:30 PM</p>
                 <p>Evening - 6:30 PM - 12:00 AM</p>
+                <p className="text-xs text-gray-500">
+                  (Venue closes at 12:00 AM)
+                </p>
               </div>
               <div>
                 <h4 className="font-semibold">Advance</h4>
@@ -156,51 +193,60 @@ const SingleProduct = () => {
               </div>
               <div>
                 <h4 className="font-semibold">Cancellation</h4>
-                <p>Non-cancellable</p>
+                <p>Non cancellable</p>
               </div>
               <div>
-                <h4 className="font-semibold">Parking</h4>
+                <h4 className="font-semibold">Parking At</h4>
                 <p>Valet provided by venue</p>
-                <p>Space available for 20 vehicles</p>
+                <p>Parking space available for 20 vehicles</p>
               </div>
             </div>
-          </section>
+            <button className="text-blue-600 text-xs sm:text-sm font-medium mt-3">
+              Show More
+            </button>
+          </div>
         </div>
 
-        {/* =================== Ratings & Reviews =================== */}
-        <div className="mt-10 border-t border-gray-100 pt-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center border-b pb-4 mb-6">
-            <div>
-              <h2 className="text-lg font-semibold text-gray-800">
-                ⭐ Ratings & Reviews
+        {/* Ratings & Reviews Section */}
+        <div className="mt-10 border-t pt-6">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b pb-4 mb-6">
+            <div className="text-center sm:text-left">
+              <h2 className="text-lg sm:text-xl font-semibold">
+                Ratings & Reviews
               </h2>
-              <div className="flex items-center mt-1 text-sm">
-                <span className="text-2xl font-bold text-pink-600">4.5</span>
-                <span className="text-gray-500 ml-1">/5</span>
-                <div className="flex ml-3">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <FaStar
-                      key={i}
-                      className={`h-4 w-4 ${
-                        i < 4 ? "text-yellow-400" : "text-gray-300"
-                      }`}
-                    />
-                  ))}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:mt-2 text-xs sm:text-sm">
+                <div className="flex justify-center sm:justify-start items-center">
+                  <span className="text-2xl sm:text-3xl font-bold text-pink-600">
+                    4.5
+                  </span>
+                  <span className="text-gray-500 text-lg ml-1">/5</span>
+                  <div className="flex ml-3">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <FaStar
+                        key={i}
+                        className={`h-4 w-4 sm:h-5 sm:w-5 ${
+                          i < 4 ? "text-yellow-400" : "text-gray-300"
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
-                <span className="text-gray-500 ml-2">134 Ratings</span>
+                <span className="text-gray-500 mt-2 sm:mt-0 sm:ml-3">
+                  134 Ratings & Reviews
+                </span>
               </div>
             </div>
-            <button className="text-pink-600 font-medium hover:underline text-sm">
-              See All Reviews
+            <button className="text-pink-600 font-medium hover:underline mt-3 sm:mt-0 text-sm sm:text-base">
+              See All Verified Reviews
             </button>
           </div>
 
-          {/* Reviews */}
+          {/* Reviews Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {reviews.map((review, i) => (
+            {(reviews || []).map((review, i) => (
               <div
                 key={i}
-                className="bg-white border rounded-xl p-4 hover:shadow-md transition text-gray-700"
+                className="border rounded-xl p-4 hover:shadow-sm transition bg-white text-sm sm:text-base"
               >
                 <h3 className="font-semibold flex items-center gap-2">
                   {review.name}
@@ -208,13 +254,13 @@ const SingleProduct = () => {
                     ⭐ 5/5
                   </span>
                 </h3>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-gray-500">
                   Event Date: {review.date} | PAX: {review.pax}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed">
+                <p className="mt-2 text-gray-700 text-sm">
                   {review.text}{" "}
                   {review.more && (
-                    <span className="text-pink-600 cursor-pointer hover:underline">
+                    <span className="text-pink-600 cursor-pointer">
                       Read more
                     </span>
                   )}
@@ -224,10 +270,12 @@ const SingleProduct = () => {
           </div>
 
           {/* Write Review */}
-          <div className="mt-8 border-t pt-4 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-600">
-            <span>Have something to share about the venue?</span>
-            <button className="mt-3 sm:mt-0 px-4 py-2 border border-pink-600 text-pink-600 rounded-lg hover:bg-pink-50 font-medium">
-              Write a Review
+          <div className="mt-8 border-t pt-4 flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm">
+            <span className="text-gray-600 mb-3 sm:mb-0">
+              Have something to share about the venue?
+            </span>
+            <button className="px-4 py-2 border border-pink-600 text-pink-600 rounded-lg hover:bg-pink-50 text-sm sm:text-base">
+              Write a review
             </button>
           </div>
         </div>
