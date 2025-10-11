@@ -1,5 +1,5 @@
 import React from "react";
-
+import ComingSoon from "../../Mesages/CommingSoon";
 const cities = [
   {
     name: "Kochi",
@@ -34,7 +34,7 @@ const CitiesSection = () => {
         </h2>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto ">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto ">
           {cities.map((city, idx) => (
             <div
               key={idx}
@@ -55,9 +55,10 @@ const CitiesSection = () => {
         </div>
 
         {/* Footer Text */}
-        <p className="pt-7 text-gray-200 font-medium">
+        {/* <p className="pt-7 text-gray-200 font-medium">
           We Are Coming To Your Place Soon
-        </p>
+        </p> */}
+        <ComingSoon/>
       </div>
     </section>
   );

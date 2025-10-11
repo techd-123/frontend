@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import ComingSoon from "../../Mesages/CommingSoon";
 const vendors = [
   {
     name: "Venues",
@@ -50,6 +50,7 @@ const VendorPage = () => {
       <h2 className="text-[20px] mb-5 md:text-3xl font-bold text-center p-8">
         Build Your Vendor Team
       </h2>
+      <ComingSoon />
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

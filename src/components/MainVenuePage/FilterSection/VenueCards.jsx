@@ -3,7 +3,7 @@ import VenueCard from "./VenueCard";
 import FilterPanel from "./FilterPanel";
 import VendorFilterPanel from "./VendorFilterPanel";
 import { useSearchParams } from "react-router-dom";
-
+import ComingSoon from "../../Mesages/CommingSoon";
 const VenueCards = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [activeTab, setActiveTab] = useState("venues");
@@ -167,10 +167,13 @@ const VenueCards = () => {
             Filter
           </button>
         </div>
+                  <ComingSoon/>
 
         {/* Cards Grid */}
         {activeTab === "venues" ? (
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+
             {venues.map((item, index) => (
               <VenueCard key={index} {...item} />
             ))}

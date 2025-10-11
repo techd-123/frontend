@@ -2,10 +2,27 @@ import React from "react";
 import { FaStar, FaWhatsapp } from "react-icons/fa";
 import { MdCalendarToday } from "react-icons/md";
 
+const reviews = [
+  {
+    name: "John Doe",
+    date: "2025-09-24",
+    pax: 200,
+    text: "Amazing experience!",
+    more: true,
+  },
+  {
+    name: "Jane Smith",
+    date: "2025-09-20",
+    pax: 150,
+    text: "The venue was beautiful.",
+    more: false,
+  },
+];
+
 const SingleProduct = () => {
   return (
     <div className="min-h-screen flex items-start justify-center bg-gray-50 px-2 sm:px-4 lg:px-6 py-6">
-      <div className="w-full max-w-6xl bg-white rounded-xl shadow-md p-4 sm:p-6 lg:p-8">
+      <div className="w-full max-w-6xl bg-white rounded-xl shadow-md p-3 sm:p-6 lg:p-8">
         {/* ============== Top Section: Venue + Images + Request Pricing ============== */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left: Image slider */}
@@ -16,21 +33,21 @@ const SingleProduct = () => {
                 <img
                   src="/images/nested/slider1.jpg"
                   alt="Venue"
-                  className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg"
+                  className="w-full h-52 sm:h-72 lg:h-96 object-cover rounded-lg"
                 />
               </div>
 
               {/* Side Images */}
-              <div className="w-full sm:w-1/3 flex sm:flex-col gap-2">
+              <div className="w-full sm:w-1/3 flex flex-row sm:flex-col gap-2">
                 <img
                   src="/images/nested/slider3.jpg"
                   alt="Venue Side"
-                  className="w-full h-40 sm:h-48 lg:h-44 object-cover rounded-lg"
+                  className="w-1/2 sm:w-full h-40 sm:h-48 lg:h-44 object-cover rounded-lg"
                 />
                 <img
                   src="/images/nested/slider4.jpg"
                   alt="Venue Side"
-                  className="w-full h-40 sm:h-48 lg:h-44 object-cover rounded-lg"
+                  className="w-1/2 sm:w-full h-40 sm:h-48 lg:h-44 object-cover rounded-lg"
                 />
               </div>
             </div>
@@ -47,19 +64,19 @@ const SingleProduct = () => {
               ].map((tag, i) => (
                 <span
                   key={i}
-                  className="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-xs font-medium"
+                  className="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-xs sm:text-sm font-medium"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className="flex items-center gap-2 text-green-600 mb-4">
+            <div className="flex items-center gap-2 text-green-600 mb-4 text-sm sm:text-base">
               <FaWhatsapp />
-              <span className="text-sm">Need Contact Number ?</span>
+              <span>Need Contact Number ?</span>
             </div>
 
-            <button className="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-md shadow">
+            <button className="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-md shadow text-sm sm:text-base">
               Request Pricing
             </button>
           </div>
@@ -67,15 +84,15 @@ const SingleProduct = () => {
 
         {/* Venue Info */}
         <div className="mt-6">
-          <h2 className="text-2xl font-bold text-center sm:text-left">
+          <h2 className="text-xl sm:text-2xl font-bold text-center sm:text-left">
             Ambara Suites
           </h2>
 
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 mt-2 text-center sm:text-left">
-            <span className="flex items-center justify-center sm:justify-start bg-green-100 text-green-700 px-2 py-1 rounded-md text-sm font-medium">
+            <span className="flex items-center justify-center sm:justify-start bg-green-100 text-green-700 px-2 py-1 rounded-md text-xs sm:text-sm font-medium">
               <FaStar className="mr-1" /> 4.5/5
             </span>
-            <span className="text-sm text-gray-600 mt-1 sm:mt-0">
+            <span className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-0">
               134 Reviews
             </span>
           </div>
@@ -89,17 +106,17 @@ const SingleProduct = () => {
             </button>
           </p>
 
-          <div className="mt-4 flex items-center justify-center sm:justify-start gap-2 text-blue-600 bg-blue-50 border border-blue-300 px-3 py-2 rounded-md text-sm font-medium">
+          <div className="mt-4 flex items-center justify-center sm:justify-start gap-2 text-blue-600 bg-blue-50 border border-blue-300 px-3 py-2 rounded-md text-xs sm:text-sm font-medium">
             <span>Hurry Up! This Venue Is In High Demand</span>
           </div>
         </div>
 
         {/* Availability Section */}
         <div className="mt-6">
-          <h3 className="text-lg font-semibold text-center sm:text-left">
+          <h3 className="text-base sm:text-lg font-semibold text-center sm:text-left">
             Check live availability
           </h3>
-          <div className="flex items-center justify-center sm:justify-start gap-2 mt-2 text-pink-600 text-sm">
+          <div className="flex items-center justify-center sm:justify-start gap-2 mt-2 text-pink-600 text-xs sm:text-sm">
             <MdCalendarToday />
             <span>We have live availability for this venue</span>
           </div>
@@ -110,15 +127,15 @@ const SingleProduct = () => {
           />
         </div>
 
-        {/* ============== Photos + Features + Policies ============== */}
+        {/* Photos + Features + Policies */}
         <div className="mt-10 border-t pt-6 space-y-8">
           {/* Photos */}
           <div>
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3">
-              <h3 className="text-xl font-semibold text-center sm:text-left">
+              <h3 className="text-lg sm:text-xl font-semibold text-center sm:text-left">
                 Ambara Suites Photos
               </h3>
-              <button className="text-blue-600 text-sm font-medium mt-2 sm:mt-0">
+              <button className="text-blue-600 text-xs sm:text-sm font-medium mt-2 sm:mt-0">
                 View all
               </button>
             </div>
@@ -135,7 +152,7 @@ const SingleProduct = () => {
                   key={i}
                   src={img}
                   alt={`Venue ${i}`}
-                  className="w-40 h-28 sm:w-52 sm:h-32 object-cover rounded-lg flex-shrink-0"
+                  className="w-32 h-24 sm:w-40 sm:h-28 lg:w-52 lg:h-32 object-cover rounded-lg flex-shrink-0"
                 />
               ))}
             </div>
@@ -143,8 +160,10 @@ const SingleProduct = () => {
 
           {/* Features */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Features of venue</h3>
-            <ul className="list-disc pl-5 space-y-1 text-gray-700 text-sm">
+            <h3 className="text-base sm:text-lg font-semibold mb-3">
+              Features of venue
+            </h3>
+            <ul className="list-disc pl-5 space-y-1 text-gray-700 text-xs sm:text-sm">
               <li>Ample parking space and valet services</li>
               <li>Serves both vegetarian and non-vegetarian food</li>
               <li>
@@ -156,8 +175,10 @@ const SingleProduct = () => {
 
           {/* Venue Policies */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Venue policies</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-gray-700">
+            <h3 className="text-base sm:text-lg font-semibold mb-3">
+              Venue policies
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs sm:text-sm text-gray-700">
               <div>
                 <h4 className="font-semibold">Timings & Slots</h4>
                 <p>Morning - 7:30 AM - 3:30 PM</p>
@@ -180,7 +201,7 @@ const SingleProduct = () => {
                 <p>Parking space available for 20 vehicles</p>
               </div>
             </div>
-            <button className="text-blue-600 text-sm font-medium mt-3">
+            <button className="text-blue-600 text-xs sm:text-sm font-medium mt-3">
               Show More
             </button>
           </div>
@@ -188,19 +209,22 @@ const SingleProduct = () => {
 
         {/* Ratings & Reviews Section */}
         <div className="mt-10 border-t pt-6">
-          {/* Header */}
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b pb-4 mb-6">
             <div className="text-center sm:text-left">
-              <h2 className="text-xl font-semibold">Ratings & Reviews</h2>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:mt-2 text-sm sm:text-base">
+              <h2 className="text-lg sm:text-xl font-semibold">
+                Ratings & Reviews
+              </h2>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:mt-2 text-xs sm:text-sm">
                 <div className="flex justify-center sm:justify-start items-center">
-                  <span className="text-3xl font-bold text-pink-600">4.5</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-pink-600">
+                    4.5
+                  </span>
                   <span className="text-gray-500 text-lg ml-1">/5</span>
                   <div className="flex ml-3">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <FaStar
                         key={i}
-                        className={`h-5 w-5 ${
+                        className={`h-4 w-4 sm:h-5 sm:w-5 ${
                           i < 4 ? "text-yellow-400" : "text-gray-300"
                         }`}
                       />
@@ -212,46 +236,17 @@ const SingleProduct = () => {
                 </span>
               </div>
             </div>
-            <button className="text-pink-600 font-medium hover:underline mt-3 sm:mt-0">
+            <button className="text-pink-600 font-medium hover:underline mt-3 sm:mt-0 text-sm sm:text-base">
               See All Verified Reviews
             </button>
           </div>
 
           {/* Reviews Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                name: "Verified User",
-                date: "29 Mar 2023",
-                pax: 500,
-                text: "Aakash Kawde Event Date 18 March, 2023 Book for full day, | PAX 500 + All arrangements was...",
-                more: true,
-              },
-              {
-                name: "Akshay Nevrekor",
-                date: "22 Feb 2023",
-                pax: 500,
-                text: "Great experience! Everything was perfectly arranged.",
-                more: false,
-              },
-              {
-                name: "Pooja G",
-                date: "17 Feb 2023",
-                pax: 250,
-                text: "Really well managed and beautiful arrangements.",
-                more: false,
-              },
-              {
-                name: "Vishal Gohil",
-                date: "18 Feb 2023",
-                pax: 180,
-                text: "Excellent arrangements, excellent food, excellent lights, excellent space , well behaved team...",
-                more: true,
-              },
-            ].map((review, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {(reviews || []).map((review, i) => (
               <div
                 key={i}
-                className="border rounded-xl p-4 hover:shadow-sm transition bg-white"
+                className="border rounded-xl p-4 hover:shadow-sm transition bg-white text-sm sm:text-base"
               >
                 <h3 className="font-semibold flex items-center gap-2">
                   {review.name}
@@ -275,8 +270,8 @@ const SingleProduct = () => {
           </div>
 
           {/* Write Review */}
-          <div className="mt-8 border-t pt-4 flex flex-col sm:flex-row justify-between items-center">
-            <span className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-0">
+          <div className="mt-8 border-t pt-4 flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm">
+            <span className="text-gray-600 mb-3 sm:mb-0">
               Have something to share about the venue?
             </span>
             <button className="px-4 py-2 border border-pink-600 text-pink-600 rounded-lg hover:bg-pink-50 text-sm sm:text-base">

@@ -1,17 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6";
-import { FiChevronDown } from "react-icons/fi";
 
 const Footer = () => {
-  const [openCompany, setOpenCompany] = useState(false);
-  const [openSupport, setOpenSupport] = useState(false);
-
   return (
     <footer className="bg-[#25113D] text-white py-12 px-6 md:px-16">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start pb-8">
+      <div className="    max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start pb-8">
         {/* Left Section */}
-                {/* Left Secnkndcnjdcmcbhjdcndbhction */}
-
         <div className="flex flex-col gap-5">
           <img
             src="/images/logo.svg"
@@ -45,71 +39,47 @@ const Footer = () => {
         </div>
 
         {/* Middle Section - Company */}
-        <div className="flex flex-col items-start md:items-center">
-          <button
-            onClick={() => setOpenCompany(!openCompany)}
-            className="flex items-center justify-between w-full md:justify-center text-lg font-semibold mb-4"
-          >
-            Company
-            <FiChevronDown
-              className={`ml-2 transform transition-transform ${
-                openCompany ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-          {openCompany && (
-            <ul className="space-y-2 text-sm text-gray-300 transition-all duration-300">
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Vendor Login
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          )}
+        <div className="flex flex-col items-center text-center">
+          <h3 className="text-lg font-semibold mb-4">Company</h3>
+          <ul className="space-y-2 text-sm text-gray-300">
+            <li>
+              <a href="#" className="hover:text-white transition">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-white transition">
+                Vendor Login
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-white transition">
+                Contact Us
+              </a>
+            </li>
+          </ul>
         </div>
 
         {/* Right Section - Support */}
-        <div className="flex flex-col items-start md:items-center">
-          <button
-            onClick={() => setOpenSupport(!openSupport)}
-            className="flex items-center justify-between w-full md:justify-center text-lg font-semibold mb-4"
-          >
-            Support
-            <FiChevronDown
-              className={`ml-2 transform transition-transform ${
-                openSupport ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-          {openSupport && (
-            <ul className="space-y-2 text-sm text-gray-300 transition-all duration-300">
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  FAQs
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Terms & Conditions
-                </a>
-              </li>
-            </ul>
-          )}
+        <div className="flex flex-col items-center text-center">
+          <h3 className="text-lg font-semibold mb-4">Support</h3>
+          <ul className="space-y-2 text-sm text-gray-300">
+            <li>
+              <a href="#" className="hover:text-white transition">
+                FAQs
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-white transition">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-white transition">
+                Terms & Conditions
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 

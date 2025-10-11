@@ -18,15 +18,19 @@ import HomePage from "./components/NewHomepage/Home/HomePage";
 import FilterPage from "./components/NewHomepage/Home/FilterPage";
 import WhyPlanHere from "./components/NewHomepage/pages/WhyPlanHere";
 import SingleProduct from "./components/NewHomepage/pages/ProductPages/SingleProduct";
+import RegisterPage from "./components/authPage/RegisterPage";
+import CartPage from "./components/NewHomepage/pages/Wishlist/CartPage";
 function App() {
   return (
     <div className="app">
       <Routes>
         <Route path="/" element={<HomePage />} />
-    
+        <Route path="/register" element={<RegisterPage />} />
+
         <Route path="/filter" element={<FilterPage />} />
         <Route path="/whyplan" element={<WhyPlanHere />} />
         <Route path="/product" element={<SingleProduct />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </div>
   );
