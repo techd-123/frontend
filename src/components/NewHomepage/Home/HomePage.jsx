@@ -8,13 +8,17 @@ import Accordion from "../pages/Accordion";
 import ConfusedSection from "../pages/ConfusedSection";
 import Footer from "../common/Footer";
 import Slider from "../pages/Slider";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const [vendor, setVendor] = useState("");
   const [location, setLocation] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
+    navigate('/filter')
     console.log("Vendor:", vendor);
     console.log("Location:", location);
     // 👉 you can navigate or fetch filtered data here
@@ -91,7 +95,7 @@ const HomePage = () => {
                   type="submit"
                   className="flex items-center gap-3 justify-center px-6 py-3 bg-[#C2639D] hover:bg-pink-600 rounded-md text-white font-semibold transition"
                 >
-                  <FiSearch className="mr-2" /> Search
+                  <FiSearch className="mr-2" onClick={handleSearch}/> Search
                 </button>
               </div>
             </form>
